@@ -1,15 +1,15 @@
 <template>
   <div class="page">
     <div class="flex-1 flex">
-      <div class="md:w-1/4 w-full flex flex-col m-8 gap-4">
+      <div class="md:w-1/3 w-full flex flex-col m-8 gap-4">
         <div>
-          <n-text class="text-lg font-medium">
+          <NText class="text-lg font-medium">
             Resume Builder
-          </n-text>
+          </NText>
           <br>
-          <n-text class="text-lg" :depth="3">
+          <NText class="text-lg" :depth="3">
             {{ title }}
-          </n-text>
+          </NText>
         </div>
 
         <div class="w-full my-auto">
@@ -17,7 +17,7 @@
         </div>
       </div>
 
-      <div class="w-3/4 hidden md:block bg-gradient-to-r from-cyan-500 to-blue-500" />
+      <div class="md:w-2/3 hidden md:block bg-gradient-to-r from-cyan-500 to-blue-500" />
     </div>
   </div>
 </template>

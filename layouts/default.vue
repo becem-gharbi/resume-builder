@@ -1,12 +1,12 @@
 <template>
   <naive-layout-navbar :routes="routes" :drawer-routes="drawerRoutes">
     <template #start>
-      <nuxt-link to="/" class="flex items-center gap-3">
-        <naive-icon name="ph:read-cv-logo" :size="25" />
-        <n-text strong>
+      <NuxtLink to="/" class="flex items-center gap-3">
+        <NaiveIcon name="ph:read-cv-logo" :size="25" />
+        <NText strong>
           Resume Builder
-        </n-text>
-      </nuxt-link>
+        </NText>
+      </NuxtLink>
     </template>
 
     <template #end>
@@ -32,9 +32,9 @@
     </template>
 
     <template #drawer-footer>
-      <n-button secondary block @click="logout">
+      <NButton secondary block @click="logout">
         Logout
-      </n-button>
+      </NButton>
     </template>
 
     <div class="flex-1 container mx-auto my-8 px-4">

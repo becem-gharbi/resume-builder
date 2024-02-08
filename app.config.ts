@@ -21,30 +21,30 @@ export default defineAppConfig({
           primaryColor: _colors.blue[500],
           primaryColorHover: _colors.blue[400],
           primaryColorPressed: _colors.blue[600],
-          borderColor: _colors.slate[300],
-          bodyColor: _colors.slate[50],
+          borderColor: _colors.slate[200],
+          bodyColor: _colors.white,
           inputColor: _colors.slate[100],
           popoverColor: _colors.slate[100],
           hoverColor: _colors.slate[200]
         },
         Layout: {
-          headerColor: _colors.slate[50],
-          headerBorderColor: _colors.slate[300]
+          headerColor: _colors.white,
+          headerBorderColor: _colors.slate[200]
         },
         Dropdown: {
-          color: _colors.slate[100],
-          dividerColor: _colors.slate[300]
+          color: _colors.slate[50],
+          dividerColor: _colors.slate[200]
         },
         Card: {
-          color: _colors.slate[100],
-          borderColor: _colors.slate[300]
+          color: _colors.slate[50],
+          borderColor: _colors.slate[200]
         },
         List: {
-          color: _colors.slate[100],
-          borderColor: _colors.slate[300]
+          color: _colors.slate[50],
+          borderColor: _colors.slate[200]
         },
         Scrollbar: {
-          color: _colors.slate[300]
+          color: _colors.slate[200]
         }
       },
 
