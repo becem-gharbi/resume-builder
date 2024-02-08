@@ -47,7 +47,7 @@ definePageMeta({
 })
 
 const { formRef, rules, pending, apiErrors, onSubmit } = useNaiveForm()
-const { login, loginWithProvider } = useAuth()
+const { login } = useAuth()
 
 const model = ref({
   email: '',
