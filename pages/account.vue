@@ -1,20 +1,20 @@
 <template>
   <div class="md:w-1/2 md:mx-auto flex flex-col gap-4">
-    <n-card title="Profile" segmented size="small">
+    <NCard title="Profile" segmented size="small">
       <AccountProfile />
-    </n-card>
+    </NCard>
 
-    <n-card v-if="user?.provider === 'default'" title="Password" segmented size="small">
+    <NCard v-if="user?.provider === 'default'" title="Password" segmented size="small">
       <AccountPassword />
-    </n-card>
+    </NCard>
 
-    <n-card title="Preferences" segmented size="small">
+    <NCard title="Preferences" segmented size="small">
       <AccountPreferences />
-    </n-card>
+    </NCard>
 
-    <n-card title="Sessions" segmented size="small">
+    <NCard title="Sessions" segmented size="small">
       <AccountSessions />
-    </n-card>
+    </NCard>
   </div>
 </template>
 

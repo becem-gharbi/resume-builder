@@ -1,12 +1,12 @@
 <template>
   <div>
-    <n-form ref="formRef" :rules="rules" :model="model" @submit.prevent="onSubmit(handleSubmit)">
-      <n-form-item label="Email" path="email" :show-require-mark="false">
-        <n-input v-model:value="model.email" :input-props="{ autocomplete: 'username' }" />
-      </n-form-item>
+    <NForm ref="formRef" :rules="rules" :model="model" @submit.prevent="onSubmit(handleSubmit)">
+      <NFormItem label="Email" path="email" :show-require-mark="false">
+        <NInput v-model:value="model.email" :input-props="{ autocomplete: 'username' }" />
+      </NFormItem>
 
-      <n-form-item path="password" :show-require-mark="false" :label-style="{ display: 'block' }">
-        <n-input
+      <NFormItem path="password" :show-require-mark="false" :label-style="{ display: 'block' }">
+        <NInput
           v-model:value="model.password"
           type="password"
           show-password-on="click"
@@ -14,26 +14,26 @@
         />
         <template #label>
           <span>Password</span>
-          <nuxt-link to="/auth/request-password-reset" class="no-underline float-end">
-            <n-text type="primary">
+          <NuxtLink to="/auth/request-password-reset" class="no-underline float-end">
+            <NText type="primary">
               Forgot password?
-            </n-text>
-          </nuxt-link>
+            </NText>
+          </NuxtLink>
         </template>
-      </n-form-item>
+      </NFormItem>
 
       <div class="flex flex-col gap-4">
-        <n-button attr-type="submit" block :loading="pending" :disabled="pending" type="primary">
+        <NButton attr-type="submit" block :loading="pending" :disabled="pending" type="primary">
           Login
-        </n-button>
+        </NButton>
 
-        <nuxt-link to="/auth/register">
-          <n-button attr-type="button" block>
+        <NuxtLink to="/auth/register">
+          <NButton attr-type="button" block>
             Create Account
-          </n-button>
-        </nuxt-link>
+          </NButton>
+        </NuxtLink>
       </div>
-    </n-form>
+    </NForm>
   </div>
 </template>
 

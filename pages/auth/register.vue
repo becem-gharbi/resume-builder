@@ -1,51 +1,51 @@
 <template>
   <div>
-    <n-result v-if="success" status="success" title="Done" description="Account successfully created">
+    <NResult v-if="success" status="success" title="Done" description="Account successfully created">
       <template #footer>
-        <nuxt-link to="/auth/login" class="no-underline">
-          <n-button type="primary">
+        <NuxtLink to="/auth/login" class="no-underline">
+          <NButton type="primary">
             Go back to login
-          </n-button>
-        </nuxt-link>
+          </NButton>
+        </NuxtLink>
       </template>
-    </n-result>
+    </NResult>
 
     <div v-else>
-      <n-form ref="formRef" :model="model" :rules="rules" @submit.prevent="onSubmit(handleSubmit)">
-        <n-form-item label="First name" path="firstName">
-          <n-input v-model:value="model.firstName" />
-        </n-form-item>
+      <NForm ref="formRef" :model="model" :rules="rules" @submit.prevent="onSubmit(handleSubmit)">
+        <NFormItem label="First name" path="firstName">
+          <NInput v-model:value="model.firstName" />
+        </NFormItem>
 
-        <n-form-item label="Last name" path="lastName">
-          <n-input v-model:value="model.lastName" />
-        </n-form-item>
+        <NFormItem label="Last name" path="lastName">
+          <NInput v-model:value="model.lastName" />
+        </NFormItem>
 
-        <n-form-item label="Email" path="email">
-          <n-input v-model:value="model.email" :input-props="{ autocomplete: 'username' }" />
-        </n-form-item>
+        <NFormItem label="Email" path="email">
+          <NInput v-model:value="model.email" :input-props="{ autocomplete: 'username' }" />
+        </NFormItem>
 
-        <n-form-item label="Password" path="password">
-          <n-input
+        <NFormItem label="Password" path="password">
+          <NInput
             v-model:value="model.password"
             type="password"
             show-password-on="click"
             :input-props="{ autocomplete: 'new-password' }"
           />
-        </n-form-item>
+        </NFormItem>
 
-        <n-form-item label="Confirm Password" path="passwordConfirm">
-          <n-input
+        <NFormItem label="Confirm Password" path="passwordConfirm">
+          <NInput
             v-model:value="model.passwordConfirm"
             type="password"
             show-password-on="click"
             :input-props="{ autocomplete: 'new-password' }"
           />
-        </n-form-item>
+        </NFormItem>
 
-        <n-button type="primary" attr-type="submit" block :disabled="pending" :loading="pending">
+        <NButton type="primary" attr-type="submit" block :disabled="pending" :loading="pending">
           Register
-        </n-button>
-      </n-form>
+        </NButton>
+      </NForm>
     </div>
   </div>
 </template>

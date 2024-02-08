@@ -1,57 +1,57 @@
 <template>
   <div>
-    <n-result v-if="success" status="success" title="Done" description="Your password is successfully reset">
+    <NResult v-if="success" status="success" title="Done" description="Your password is successfully reset">
       <template #footer>
-        <nuxt-link to="/auth/login" class="no-underline">
-          <n-button type="primary">
+        <NuxtLink to="/auth/login" class="no-underline">
+          <NButton type="primary">
             Go back to login
-          </n-button>
-        </nuxt-link>
+          </NButton>
+        </NuxtLink>
       </template>
-    </n-result>
+    </NResult>
 
-    <n-result
+    <NResult
       v-else-if="failure"
       status="error"
       title="Failed to reset password"
       description="You do not have permission"
     >
       <template #footer>
-        <nuxt-link to="/auth/login" class="no-underline">
-          <n-button type="primary">
+        <NuxtLink to="/auth/login" class="no-underline">
+          <NButton type="primary">
             Go back to login
-          </n-button>
-        </nuxt-link>
+          </NButton>
+        </NuxtLink>
       </template>
-    </n-result>
+    </NResult>
 
     <div v-else>
-      <n-form ref="formRef" :model="model" :rules="rules" @submit.prevent="onSubmit(handleSubmit)">
-        <n-form-item label="Password" path="password" :show-require-mark="false">
-          <n-input
+      <NForm ref="formRef" :model="model" :rules="rules" @submit.prevent="onSubmit(handleSubmit)">
+        <NFormItem label="Password" path="password" :show-require-mark="false">
+          <NInput
             v-model:value="model.password"
             type="password"
             show-password-on="click"
             :input-props="{ autocomplete: 'new-password' }"
           />
-        </n-form-item>
+        </NFormItem>
 
-        <n-form-item label="Confirm Password" path="passwordConfirm" :show-require-mark="false">
-          <n-input
+        <NFormItem label="Confirm Password" path="passwordConfirm" :show-require-mark="false">
+          <NInput
             v-model:value="model.passwordConfirm"
             type="password"
             show-password-on="click"
             :input-props="{ autocomplete: 'new-password' }"
           />
-        </n-form-item>
+        </NFormItem>
 
-        <n-button attr-type="submit" block :disabled="pending" :loading="pending" type="primary">
+        <NButton attr-type="submit" block :disabled="pending" :loading="pending" type="primary">
           <template #icon>
-            <naive-icon name="ph:arrows-counter-clockwise-duotone" />
+            <NaiveIcon name="ph:arrows-counter-clockwise-duotone" />
           </template>
           Change password
-        </n-button>
-      </n-form>
+        </NButton>
+      </NForm>
     </div>
   </div>
 </template>

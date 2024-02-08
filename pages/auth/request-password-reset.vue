@@ -1,33 +1,33 @@
 <template>
   <div>
-    <n-result
+    <NResult
       v-if="success"
       status="success"
       title="Done"
       description="We've sent you a secure link to reset your password"
     >
       <template #footer>
-        <nuxt-link to="/auth/login" class="no-underline">
-          <n-button type="primary">
+        <NuxtLink to="/auth/login" class="no-underline">
+          <NButton type="primary">
             Go back to login
-          </n-button>
-        </nuxt-link>
+          </NButton>
+        </NuxtLink>
       </template>
-    </n-result>
+    </NResult>
 
     <div v-else>
-      <n-form ref="formRef" :rules="rules" :model="model" @submit.prevent="onSubmit(handleSubmit)">
-        <n-form-item label="Email" path="email" :show-require-mark="false">
-          <n-input v-model:value="model.email" :input-props="{ autocomplete: 'username' }" />
-        </n-form-item>
+      <NForm ref="formRef" :rules="rules" :model="model" @submit.prevent="onSubmit(handleSubmit)">
+        <NFormItem label="Email" path="email" :show-require-mark="false">
+          <NInput v-model:value="model.email" :input-props="{ autocomplete: 'username' }" />
+        </NFormItem>
 
-        <n-button block attr-type="submit" :loading="pending" type="primary">
+        <NButton block attr-type="submit" :loading="pending" type="primary">
           <template #icon>
-            <naive-icon name="ph:arrows-counter-clockwise-duotone" />
+            <NaiveIcon name="ph:arrows-counter-clockwise-duotone" />
           </template>
           Reset password
-        </n-button>
-      </n-form>
+        </NButton>
+      </NForm>
     </div>
   </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <n-upload
+    <NUpload
       class="overflow-hidden w-min mx-auto my-4"
       list-type="image-card"
       :max="1"
@@ -8,24 +8,24 @@
       :custom-request="(e) => (model.file = e.file.file)"
     >
       <img v-if="model.picture" :src="model.picture" class="object-cover" alt="avatar">
-    </n-upload>
+    </NUpload>
 
-    <n-form ref="formRef" class="flex-1" @submit.prevent="onSubmit(updateAccount)">
-      <n-form-item label="Name">
-        <n-input v-model:value="model.name" />
-      </n-form-item>
+    <NForm ref="formRef" class="flex-1" @submit.prevent="onSubmit(updateAccount)">
+      <NFormItem label="Name">
+        <NInput v-model:value="model.name" />
+      </NFormItem>
 
       <div class="flex gap-2">
-        <n-button attr-type="reset" :disabled="pending || !edited" @click="reset">
+        <NButton attr-type="reset" :disabled="pending || !edited" @click="reset">
           Reset
-        </n-button>
+        </NButton>
 
-        <n-button attr-type="submit" :loading="pending" :disabled="pending || !edited" type="primary">
+        <NButton attr-type="submit" :loading="pending" :disabled="pending || !edited" type="primary">
           Update
           profile
-        </n-button>
+        </NButton>
       </div>
-    </n-form>
+    </NForm>
   </div>
 </template>
 

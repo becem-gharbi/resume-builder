@@ -1,9 +1,9 @@
 <template>
-  <n-form>
-    <n-form-item label="Color Mode">
-      <n-select v-model:value="preference" :options="colorModeSelectOptions" />
-    </n-form-item>
-  </n-form>
+  <NForm>
+    <NFormItem label="Color Mode">
+      <NSelect v-model:value="preference" :options="colorModeSelectOptions" />
+    </NFormItem>
+  </NForm>
 </template>
 
 <script setup lang="ts">

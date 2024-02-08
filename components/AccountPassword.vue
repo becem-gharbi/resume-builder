@@ -1,46 +1,46 @@
 <template>
-  <n-form
+  <NForm
     ref="formRef"
     :model="model"
     :rules="rules"
     @submit.prevent="onSubmit(handleChangePassword)"
   >
-    <n-form-item label="Current password" path="currentPassword">
-      <n-input
+    <NFormItem label="Current password" path="currentPassword">
+      <NInput
         v-model:value="model.currentPassword"
         type="password"
         show-password-on="click"
       />
-    </n-form-item>
+    </NFormItem>
 
-    <n-form-item label="New password" path="newPassword">
-      <n-input
+    <NFormItem label="New password" path="newPassword">
+      <NInput
         v-model:value="model.newPassword"
         type="password"
         show-password-on="click"
         :input-props="{ autocomplete: 'new-password' }"
       />
-    </n-form-item>
+    </NFormItem>
 
     <div class="flex gap-4">
-      <n-button
+      <NButton
         secondary
         attr-type="reset"
         :disabled="pending || !edited"
         @click="reset"
       >
         Reset
-      </n-button>
-      <n-button
+      </NButton>
+      <NButton
         type="primary"
         attr-type="submit"
         :loading="pending"
         :disabled="pending || !edited"
       >
         Save
-      </n-button>
+      </NButton>
     </div>
-  </n-form>
+  </NForm>
 </template>
 
 <script setup lang="ts">

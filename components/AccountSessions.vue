@@ -1,6 +1,6 @@
 <template>
-  <n-list>
-    <n-list-item v-for="session of sessions" :key="session.id">
+  <NList>
+    <NListItem v-for="session of sessions" :key="session.id">
       <n-thing>
         <template #avatar>
           <n-tag :type="session.current ? 'success' : 'warning'" size="small">
@@ -19,7 +19,7 @@
         </template>
 
         <template #header-extra>
-          <n-button
+          <NButton
             circle
             size="small"
             type="error"
@@ -30,11 +30,11 @@
             <template #icon>
               <NaiveIcon name="ph:trash-simple" />
             </template>
-          </n-button>
+          </NButton>
         </template>
       </n-thing>
-    </n-list-item>
-  </n-list>
+    </NListItem>
+  </Nlist>
 </template>
 
 <script setup lang="ts">
