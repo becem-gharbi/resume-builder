@@ -15,7 +15,7 @@
           placement="bottom-start"
           trigger="click"
           :options="dropdownOptions"
-          :style="{ padding: '8px', minWidth: '240px' }"
+          :style="{ minWidth: '240px' }"
           @select="handleDropdownSelect"
         >
           <img

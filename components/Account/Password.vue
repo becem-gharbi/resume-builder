@@ -10,7 +10,6 @@
         v-model:value="model.currentPassword"
         type="password"
         show-password-on="click"
-        :input-props="{ autocomplete: 'current-password' }"
       />
     </n-form-item>
 
