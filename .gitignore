@@ -11,3 +11,5 @@ dist
 docker-compose.yml
 .netlify
 uploads
+prisma/migrations
+prisma/dev.db

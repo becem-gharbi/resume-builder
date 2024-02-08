@@ -1,10 +1,10 @@
 <template>
   <div class="page">
     <div class="flex-1 flex">
-      <div class="md:w-1/3 w-full flex flex-col justify-between">
-        <div class="px-8 mt-10">
-          <n-text class="text-lg font-semibold">
-            Nuxt starter
+      <div class="md:w-1/4 w-full flex flex-col m-8 gap-4">
+        <div>
+          <n-text class="text-lg font-medium">
+            Resume Builder
           </n-text>
           <br>
           <n-text class="text-lg" :depth="3">
@@ -12,16 +12,12 @@
           </n-text>
         </div>
 
-        <div class="px-8 py-4 max-w-sm mx-auto w-full">
+        <div class="w-full my-auto">
           <slot />
-        </div>
-
-        <div>
-          <Footer />
         </div>
       </div>
 
-      <div class="w-2/3 hidden md:block bg-gradient-to-r from-cyan-500 to-blue-500" />
+      <div class="w-3/4 hidden md:block bg-gradient-to-r from-cyan-500 to-blue-500" />
     </div>
   </div>
 </template>
@@ -42,12 +38,16 @@ const title = computed(() => {
 
     case 'auth-reset-password':
       return 'Reset your password'
-
-    case 'auth-verify-email':
-      return 'Email verification'
-
-    case 'auth-callback':
-      return 'Social login'
   }
 })
 </script>
+
+<style scoped>
+.page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+</style>

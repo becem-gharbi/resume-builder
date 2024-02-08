@@ -27,15 +27,6 @@
           Login
         </n-button>
 
-        <n-button block @click="loginWithProvider('google')">
-          <template #icon>
-            <naive-icon name="devicon:google" />
-          </template>
-          Continue with Google
-        </n-button>
-
-        <n-divider>or</n-divider>
-
         <nuxt-link to="/auth/register">
           <n-button attr-type="button" block>
             Create Account

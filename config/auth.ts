@@ -5,10 +5,6 @@ export const auth: Partial<ModuleOptions> = {
 
   enableGlobalAuthMiddleware: true,
 
-  prisma: {
-    datasourceUrl: process.env.NUXT_AUTH_PRISMA_DATASOURCE_URL
-  },
-
   accessToken: {
     jwtSecret: process.env.NUXT_AUTH_ACCESS_TOKEN_JWT_SECRET!
   },
@@ -17,23 +13,10 @@ export const auth: Partial<ModuleOptions> = {
     jwtSecret: process.env.NUXT_AUTH_REFRESH_TOKEN_JWT_SECRET!
   },
 
-  oauth: {
-    google: {
-      clientId: process.env.NUXT_AUTH_OAUTH_GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.NUXT_AUTH_OAUTH_GOOGLE_CLIENT_SECRET!,
-      scopes: 'email profile',
-      authorizeUrl: 'https://accounts.google.com/o/oauth2/auth',
-      tokenUrl: 'https://accounts.google.com/o/oauth2/token',
-      userUrl: 'https://www.googleapis.com/oauth2/v3/userinfo'
-    }
-  },
-
   redirect: {
     login: '/auth/login',
     logout: '/auth/login',
     home: '/',
-    callback: '/auth/callback',
-    emailVerify: '/auth/verify-email',
     passwordReset: '/auth/reset-password'
   },
 

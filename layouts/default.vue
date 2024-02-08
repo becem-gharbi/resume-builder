@@ -2,9 +2,9 @@
   <naive-layout-navbar :routes="routes" :drawer-routes="drawerRoutes">
     <template #start>
       <nuxt-link to="/" class="flex items-center gap-3">
-        <naive-icon name="logos:nuxt-icon" :size="25" />
+        <naive-icon name="ph:read-cv-logo" :size="25" />
         <n-text strong>
-          Nuxt starter
+          Resume Builder
         </n-text>
       </nuxt-link>
     </template>
@@ -15,7 +15,7 @@
           placement="bottom-start"
           trigger="click"
           :options="dropdownOptions"
-          :style="{ padding: '8px', minWidth: '200px' }"
+          :style="{ padding: '8px', minWidth: '240px' }"
           @select="handleDropdownSelect"
         >
           <img
@@ -36,12 +36,6 @@
         Logout
       </n-button>
     </template>
-
-    <ClientOnly>
-      <n-notification-provider placement="bottom-right">
-        <NotificationNetwork />
-      </n-notification-provider>
-    </ClientOnly>
 
     <div class="flex-1 container mx-auto my-8 px-4">
       <slot />

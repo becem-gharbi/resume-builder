@@ -1,6 +1,14 @@
 <template>
   <div>
-    <n-result v-if="success" status="success" title="Email verification is sent" description="Please check your inbox" />
+    <n-result v-if="success" status="success" title="Done" description="Account successfully created">
+      <template #footer>
+        <nuxt-link to="/auth/login" class="no-underline">
+          <n-button type="primary">
+            Go back to login
+          </n-button>
+        </nuxt-link>
+      </template>
+    </n-result>
 
     <div v-else>
       <n-form ref="formRef" :model="model" :rules="rules" @submit.prevent="onSubmit(handleSubmit)">
@@ -52,7 +60,7 @@ definePageMeta({
 })
 
 const { formRef, pending, rules, onSubmit, apiErrors } = useNaiveForm()
-const { register, requestEmailVerify } = useAuth()
+const { register } = useAuth()
 const success = ref(false)
 
 apiErrors.value = {
@@ -112,6 +120,11 @@ rules.value = {
   ],
   passwordConfirm: [
     {
+      required: true,
+      message: 'Please confirm your password',
+      trigger: 'blur'
+    },
+    {
       validator: (_, value) => value === model.value.password,
       message: 'Passwords do not match',
       trigger: 'blur'
@@ -129,8 +142,6 @@ async function handleSubmit () {
   if (error.value) {
     apiErrors.value.emailAlreadyExists = error.value.data?.message.includes('email-used-with') || false
   } else {
-    await requestEmailVerify(model.value.email)
-
     success.value = true
   }
 }
