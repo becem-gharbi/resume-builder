@@ -1,11 +1,11 @@
 <template>
   <div class="flex gap-4">
-    <n-button secondary attr-type="reset" :disabled="disabled" @click="$emit('reset')">
+    <NButton secondary attr-type="reset" :disabled="disabled" @click="$emit('reset')">
       Reset
-    </n-button>
-    <n-button type="primary" attr-type="submit" :loading="loading" :disabled="disabled">
+    </NButton>
+    <NButton type="primary" attr-type="submit" :loading="loading" :disabled="disabled">
       Save
-    </n-button>
+    </NButton>
   </div>
 </template>
 

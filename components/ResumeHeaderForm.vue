@@ -25,7 +25,6 @@
 </template>
 
 <script setup lang="ts">
-
 const props = defineProps<{ resume: Resume }>()
 const emits = defineEmits(['update:resume'])
 

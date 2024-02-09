@@ -2,28 +2,28 @@
   <div class="flex items-center">
     <div class="flex flex-col gap-3 flex-grow">
       <NText class="text-2xl font-semibold">
-        {{ resumeData.name }}
+        {{ resume.header!.name }}
       </NText>
       <NText class="text-base">
-        {{ resumeData.title }}
+        {{ resume.header!.title }}
       </NText>
       <div class="flex gap-4">
         <TextIcon icon="ph:phone-duotone">
-          {{ resumeData.phone }}
+          {{ resume.header!.phone }}
         </TextIcon>
         <TextIcon icon="ph:envelope-duotone">
-          {{ resumeData.email }}
+          {{ resume.header!.email }}
         </TextIcon>
         <TextIcon icon="ph:map-pin-duotone">
-          {{ resumeData.location }}
+          {{ resume.header!.location }}
         </TextIcon>
       </div>
     </div>
 
-    <ResumeAvatar />
+    <img v-if="resume.header!.photo" :src="resume.header!.photo" alt="avatar">
   </div>
 </template>
 
 <script setup lang="ts">
-const resumeData = useResumeData()
+defineProps<{ resume: Resume }>()
 </script>

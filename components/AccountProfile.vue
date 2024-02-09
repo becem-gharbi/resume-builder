@@ -1,14 +1,12 @@
 <template>
   <div>
-    <NUpload
-      class="overflow-hidden w-min mx-auto my-4"
-      list-type="image-card"
-      :max="1"
-      accept="image/*"
-      :custom-request="(e) => (model.file = e.file.file)"
-    >
-      <img v-if="model.picture" :src="model.picture" class="object-cover" alt="avatar">
-    </NUpload>
+    <UploadImage
+      ref="uploadRef"
+      class="mb-2 mx-auto shadow hover:shadow-lg border-blue-300 border-2"
+      :src="model.picture"
+      :width="140"
+      @select="(f:File)=> model.file=f"
+    />
 
     <NForm ref="formRef" class="flex-1" @submit.prevent="onSubmit(updateAccount)">
       <NFormItem label="Name">
@@ -16,7 +14,7 @@
       </NFormItem>
 
       <div class="flex gap-2">
-        <NButton attr-type="reset" :disabled="pending || !edited" @click="reset">
+        <NButton attr-type="reset" :disabled="pending || !edited" @click="handleReset">
           Reset
         </NButton>
 
@@ -30,6 +28,7 @@
 </template>
 
 <script setup lang="ts">
+const uploadRef = ref()
 const { user } = useAuthSession()
 const { upload } = useS3Object()
 const { fetchUser } = useAuth()
@@ -41,6 +40,11 @@ const model = ref({
 })
 
 const { edited, pending, onSubmit, reset, formRef } = useNaiveForm(model)
+
+function handleReset () {
+  uploadRef.value.reset()
+  reset()
+}
 
 async function updateAccount () {
   if (model.value.file) {
