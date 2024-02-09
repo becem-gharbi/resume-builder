@@ -20,7 +20,7 @@
       </div>
     </div>
 
-    <img v-if="resume.header!.photo" :src="resume.header!.photo" alt="avatar">
+    <img v-if="resume.header!.photo" :src="resume.header!.photo" alt="avatar" width="140">
   </div>
 </template>
 
