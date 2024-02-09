@@ -1,17 +1,17 @@
 {
-  "name": "nuxt-starter",
-  "version": "2.1.6",
+  "name": "resume-builder",
+  "version": "0.0.0",
   "private": true,
-  "repository": "https://github.com/becem-gharbi/nuxt-starter.git",
-  "homepage": "https://nuxt-starter.bg.tn",
+  "repository": "https://github.com/becem-gharbi/resume-builder",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "release": "npm run lint && npx nuxi typecheck && changelogen --release && git push --follow-tags",
-    "lint": "eslint ."
+    "release": "npm run lint && npm run typecheck && changelogen --release && git push --follow-tags",
+    "lint": "eslint .",
+    "typecheck": "nuxi typecheck"
   },
   "devDependencies": {
     "@bg-dev/nuxt-auth": "2.4.2",
