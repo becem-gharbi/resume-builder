@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <div class="flex-1 flex">
-      <div class="md:w-1/3 w-full flex flex-col m-8 gap-4">
+      <div class="md:w-1/4 w-full flex flex-col m-8 gap-4">
         <div>
           <NText class="text-lg font-medium">
             Resume Builder
@@ -17,7 +17,7 @@
         </div>
       </div>
 
-      <div class="md:w-2/3 hidden md:block bg-gradient-to-r from-cyan-500 to-blue-500" />
+      <div class="md:w-3/4 hidden md:block bg-gradient-to-r from-cyan-500 to-blue-500" />
     </div>
   </div>
 </template>

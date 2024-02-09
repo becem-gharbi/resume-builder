@@ -1,9 +1,9 @@
-export default defineEventHandler((event) => {
+export default defineEventHandler(async (event) => {
   const { userId } = checkUser(event)
 
   const id = event.context.params!.id
 
-  return event.context.prisma.resume.findUniqueOrThrow({
+  const data = await event.context.prisma.resume.findUniqueOrThrow({
     where: {
       id,
       userId
@@ -13,4 +13,6 @@ export default defineEventHandler((event) => {
       sections: true
     }
   })
+
+  return { ...data, header: data.header! }
 })

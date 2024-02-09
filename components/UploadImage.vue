@@ -1,7 +1,7 @@
 <template>
   <div class="relative rounded-full" :style="{width:`${width}px`}">
     <div class="absolute right-2 bottom-2 border-4 rounded-full" :style="{borderColor: theme.bodyColor}">
-      <NButton circle type="primary" size="small" @click="()=>input?.click()">
+      <NButton circle type="primary" size="small" @click="input?.click()">
         <template #icon>
           <NaiveIcon name="ph:camera" />
         </template>

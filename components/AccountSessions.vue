@@ -11,9 +11,9 @@
         <template #header>
           {{
             [
-              session.ua && UAParser(session.ua).browser.name,
-              session.ua && UAParser(session.ua).os.name,
-              session.ua && UAParser(session.ua).device.model
+              session.ua && uaParser.UAParser(session.ua).browser.name,
+              session.ua && uaParser.UAParser(session.ua).os.name,
+              session.ua && uaParser.UAParser(session.ua).device.model
             ]
               .join(' ') }}
         </template>
@@ -25,7 +25,7 @@
             type="error"
             secondary
             :disabled="session.current"
-            @click="() => handleSessionRevoke(session.id)"
+            @click="handleSessionRevoke(session.id)"
           >
             <template #icon>
               <NaiveIcon name="ph:trash-simple" />
@@ -38,11 +38,11 @@
 </template>
 
 <script setup lang="ts">
-import { UAParser } from 'ua-parser-js'
+import uaParser from 'ua-parser-js'
 
 const { getAllSessions, revokeSession } = useAuthSession()
 
-const sessions = ref(await getAllSessions())
+const { data: sessions } = useAsyncData(() => getAllSessions())
 
 async function handleSessionRevoke (id: string) {
   await revokeSession(id)

@@ -22,37 +22,17 @@
       />
     </NFormItem>
 
-    <div class="flex gap-4">
-      <NButton
-        secondary
-        attr-type="reset"
-        :disabled="pending || !edited"
-        @click="reset"
-      >
-        Reset
-      </NButton>
-      <NButton
-        type="primary"
-        attr-type="submit"
-        :loading="pending"
-        :disabled="pending || !edited"
-      >
-        Save
-      </NButton>
-    </div>
+    <FormButtons :loading="pending" :disabled="!edited || pending" @reset="reset()" />
   </NForm>
 </template>
 
 <script setup lang="ts">
-const { changePassword } = useAuth()
-
 const model = ref({
   currentPassword: '',
   newPassword: ''
 })
 
-const { formRef, onSubmit, pending, rules, apiErrors, edited, reset } =
-  useNaiveForm(model)
+const { formRef, onSubmit, pending, rules, apiErrors, edited, reset } = useNaiveForm(model)
 
 apiErrors.value = {
   wrongPassword: false
@@ -81,7 +61,7 @@ rules.value = {
 }
 
 async function handleChangePassword () {
-  await changePassword(model.value).catch((error) => {
+  await useAuth().changePassword(model.value).catch((error) => {
     apiErrors.value.wrongPassword = error.data.message === 'wrong-password'
   })
 }

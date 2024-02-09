@@ -5,8 +5,5 @@ export function checkUser (event: H3Event) {
     return event.context.auth
   }
 
-  throw createError({
-    message: 'unauthorized',
-    statusCode: 401
-  })
+  throw createError({ message: 'unauthorized', statusCode: 401 })
 }

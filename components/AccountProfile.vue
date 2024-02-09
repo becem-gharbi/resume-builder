@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <NForm ref="formRef" class="flex-1" @submit.prevent="onSubmit(updateAccount)">
     <UploadImage
       ref="uploadRef"
       class="mb-2 mx-auto shadow hover:shadow-lg border-blue-300 border-2"
@@ -8,38 +8,34 @@
       @select="(f:File)=> model.file=f"
     />
 
-    <NForm ref="formRef" class="flex-1" @submit.prevent="onSubmit(updateAccount)">
-      <NFormItem label="Name">
-        <NInput v-model:value="model.name" />
-      </NFormItem>
+    <NFormItem label="Name">
+      <NInput v-model:value="model.name" />
+    </NFormItem>
 
-      <FormButtons :loading="pending" :disabled="!edited || pending" @reset="handleReset" />
-    </NForm>
-  </div>
+    <FormButtons :loading="pending" :disabled="!edited || pending" @reset="onReset()" />
+  </NForm>
 </template>
 
 <script setup lang="ts">
 const uploadRef = ref()
 const { user } = useAuthSession()
-const { upload } = useS3Object()
-const { fetchUser } = useAuth()
 
 const model = ref({
-  name: user.value?.name,
-  picture: user.value?.picture,
+  name: user.value!.name,
+  picture: user.value!.picture,
   file: null as File | null
 })
 
 const { edited, pending, onSubmit, reset, formRef } = useNaiveForm(model)
 
-function handleReset () {
+function onReset () {
   uploadRef.value.reset()
   reset()
 }
 
 async function updateAccount () {
   if (model.value.file) {
-    const url = await upload(model.value.file, {
+    const url = await useS3Object().upload(model.value.file, {
       url: model.value.picture,
       prefix: `${user.value!.id}/`,
       meta: {
@@ -60,6 +56,6 @@ async function updateAccount () {
 
   model.value.file = null
 
-  await fetchUser()
+  await useAuth().fetchUser()
 }
 </script>

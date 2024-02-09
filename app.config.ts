@@ -11,9 +11,6 @@ export default defineAppConfig({
         Form: {
           feedbackPadding: '10px 0px'
         },
-        Dropdown: {
-          padding: '10px'
-        },
         Notification: {
           padding: '16px'
         },
@@ -27,26 +24,22 @@ export default defineAppConfig({
           primaryColor: _colors.blue[500],
           primaryColorHover: _colors.blue[400],
           primaryColorPressed: _colors.blue[600],
-          borderColor: _colors.slate[200],
+          borderColor: _colors.slate[300],
           bodyColor: _colors.white,
-          inputColor: _colors.slate[100],
-          popoverColor: _colors.slate[100],
-          hoverColor: _colors.slate[200]
+          inputColor: _colors.slate[50],
+          popoverColor: _colors.white,
+          hoverColor: _colors.slate[100]
         },
         Layout: {
           headerColor: _colors.white,
-          headerBorderColor: _colors.slate[200]
-        },
-        Dropdown: {
-          color: _colors.slate[50],
-          dividerColor: _colors.slate[200]
+          headerBorderColor: _colors.slate[300]
         },
         Card: {
-          color: _colors.slate[50],
-          borderColor: _colors.slate[200]
+          color: _colors.white,
+          borderColor: _colors.slate[300]
         },
         List: {
-          color: _colors.slate[50],
+          color: _colors.white,
           borderColor: _colors.slate[200]
         },
         Scrollbar: {
@@ -64,24 +57,20 @@ export default defineAppConfig({
           primaryColorPressed: _colors.blue[600],
           borderColor: _colors.slate[800],
           bodyColor: _colors.slate[950],
-          inputColor: _colors.slate[800],
-          popoverColor: _colors.slate[800],
-          hoverColor: _colors.slate[700]
+          inputColor: _colors.slate[900],
+          popoverColor: _colors.slate[900],
+          hoverColor: _colors.slate[800]
         },
         Layout: {
           headerColor: _colors.slate[950],
           headerBorderColor: _colors.slate[900]
         },
-        Dropdown: {
-          color: _colors.slate[800],
-          dividerColor: _colors.slate[700]
-        },
         Card: {
-          color: _colors.slate[900],
-          borderColor: _colors.slate[800]
+          color: _colors.slate[950],
+          borderColor: _colors.slate[900]
         },
         List: {
-          color: _colors.slate[900],
+          color: _colors.slate[950],
           borderColor: _colors.slate[800]
         },
         Scrollbar: {

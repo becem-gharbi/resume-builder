@@ -68,9 +68,7 @@ rules.value = {
 async function handleSubmit () {
   const { error } = await requestPasswordReset(model.value.email)
 
-  if (error.value) {
-    // console.warn(error.value.data?.message)
-  } else {
+  if (!error.value) {
     success.value = true
   }
 }

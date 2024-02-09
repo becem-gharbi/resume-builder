@@ -45,7 +45,7 @@ const broadcastChannel = process.client && new BroadcastChannel(`resume:${resume
 
 function onDelete () {
   dialog.error({
-    title: 'Delete the resume',
+    title: 'Delete Resume',
     positiveText: 'Yes',
     negativeText: 'No',
     onPositiveClick: () => {

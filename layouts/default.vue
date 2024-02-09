@@ -11,11 +11,10 @@
 
     <template #end>
       <div class="notMobileOrTablet">
-        <NButton @click="logout()">
+        <NButton secondary @click="logout()">
           <template #icon>
             <NaiveIcon name="ph:sign-out" />
           </template>
-          Logout
         </NButton>
       </div>
     </template>
