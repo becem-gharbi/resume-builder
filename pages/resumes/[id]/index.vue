@@ -1,5 +1,5 @@
 <template>
-  <NCard class="md:w-1/2 md:mx-auto">
+  <NCard class="md:w-2/3 md:mx-auto">
     <template #header>
       <TextEditable :value="resume.title" @update:value="updateTitle" />
     </template>
@@ -24,7 +24,10 @@
 
     <NTabs type="line">
       <NTabPane name="Header" tab="Header">
-        <ResumeHeaderForm v-model:resume="resume" />
+        <ResumeHeaderForm
+          v-model:resume="resume"
+          @update:resume="broadcastChannel.postMessage('refresh')"
+        />
       </NTabPane>
       <NTabPane name="Sections" tab="Sections">
         <ResumeSections v-model:resume="resume" />
@@ -37,6 +40,8 @@
 const { data: resume } = await useAsyncData(() => useResume().get(useRoute().params.id))
 
 const dialog = useDialog()
+
+const broadcastChannel = process.client && new BroadcastChannel(`resume:${resume.value.id}`)
 
 function onDelete () {
   dialog.error({

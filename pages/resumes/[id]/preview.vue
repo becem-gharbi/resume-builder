@@ -10,5 +10,11 @@ definePageMeta({
   colorMode: 'light'
 })
 
-const { data: resume } = await useAsyncData(() => useResume().get(useRoute().params.id as string))
+const { data: resume, refresh } = await useAsyncData(() => useResume().get(useRoute().params.id as string))
+
+onMounted(() => {
+  const broadcastChannel = new BroadcastChannel(`resume:${resume.value!.id}`)
+  broadcastChannel.addEventListener('message', () => refresh())
+})
+
 </script>

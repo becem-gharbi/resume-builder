@@ -1,5 +1,5 @@
 <template>
-  <NCard class="md:w-1/2 md:mx-auto flex flex-col gap-4" title="Account">
+  <NCard class="md:w-2/3 md:mx-auto flex flex-col gap-4" title="Account">
     <NTabs type="line">
       <NTabPane name="Profile" tab="Profile">
         <AccountProfile />
