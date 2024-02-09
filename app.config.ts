@@ -13,6 +13,9 @@ export default defineAppConfig({
         },
         Dropdown: {
           padding: '10px'
+        },
+        Notification: {
+          padding: '16px'
         }
       },
 
@@ -45,6 +48,9 @@ export default defineAppConfig({
         },
         Scrollbar: {
           color: _colors.slate[200]
+        },
+        Notification: {
+          color: _colors.slate[50]
         }
       },
 
@@ -77,6 +83,9 @@ export default defineAppConfig({
         },
         Scrollbar: {
           color: _colors.slate[900]
+        },
+        Notification: {
+          color: _colors.slate[800]
         }
       }
     }

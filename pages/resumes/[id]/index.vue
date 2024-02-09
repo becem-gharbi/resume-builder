@@ -2,7 +2,7 @@
   <div class="md:w-1/2 md:mx-auto">
     <NPageHeader>
       <template #title>
-        {{ resume.title }}
+        <TextEditable :value="resume.title" @update:value="updateTitle" />
       </template>
 
       <template #extra>
@@ -23,7 +23,7 @@
       </template>
     </NPageHeader>
 
-    <ResumeForm v-model:resume="resume" class="mt-8" />
+    <ResumeHeaderForm v-model:resume="resume" class="mt-8" />
   </div>
 </template>
 
@@ -33,5 +33,15 @@ const { data: resume } = await useAsyncData(() => useResume().get(useRoute().par
 async function onDelete () {
   await useResume().remove(resume.value.id)
   return navigateTo('/')
+}
+
+async function updateTitle (newTitle) {
+  await useResume().update(resume.value.id, { title: newTitle })
+    .then(() => { resume.value.title = newTitle })
+    .catch(e => useNaiveNotification().create({
+      type: 'error',
+      content: e.data.message,
+      duration: 5000
+    }))
 }
 </script>

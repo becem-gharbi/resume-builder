@@ -1,5 +1,5 @@
 <template>
-  <naive-layout-navbar :routes="routes" :drawer-routes="drawerRoutes">
+  <NaiveLayoutNavbar :routes="routes" :drawer-routes="drawerRoutes">
     <template #start>
       <NuxtLink to="/" class="flex items-center gap-3">
         <NaiveIcon name="ph:read-cv-logo" :size="25" />
@@ -11,7 +11,7 @@
 
     <template #end>
       <div class="notMobileOrTablet">
-        <n-dropdown
+        <NDropdown
           placement="bottom-start"
           trigger="click"
           :options="dropdownOptions"
@@ -23,7 +23,7 @@
             class="w-8 h-8 object-cover rounded-full ring-2 cursor-pointer"
             alt="avatar"
           >
-        </n-dropdown>
+        </NDropdown>
       </div>
     </template>
 
@@ -40,7 +40,11 @@
     <div class="flex-1 container mx-auto my-8 px-4">
       <slot />
     </div>
-  </naive-layout-navbar>
+
+    <NNotificationProvider placement="bottom-right">
+      <NaiveNotification />
+    </NNotificationProvider>
+  </NaiveLayoutNavbar>
 </template>
 
 <script setup lang="ts">
