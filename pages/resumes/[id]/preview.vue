@@ -1,6 +1,6 @@
 <template>
   <div class="p-16">
-    <ResumeHeader :resume="resume" />
+    <ResumeHeader :resume="resume!" />
   </div>
 </template>
 

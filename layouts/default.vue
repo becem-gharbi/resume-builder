@@ -1,5 +1,5 @@
 <template>
-  <NaiveLayoutNavbar :routes="routes" :drawer-routes="drawerRoutes">
+  <NaiveLayoutNavbar :routes="routes" :drawer-routes="routes">
     <template #start>
       <NuxtLink to="/" class="flex items-center gap-3">
         <NaiveIcon name="ph:read-cv-logo" :size="25" />
@@ -11,19 +11,12 @@
 
     <template #end>
       <div class="notMobileOrTablet">
-        <NDropdown
-          placement="bottom-start"
-          trigger="click"
-          :options="dropdownOptions"
-          :style="{ minWidth: '240px' }"
-          @select="handleDropdownSelect"
-        >
-          <img
-            :src="user?.picture"
-            class="w-8 h-8 object-cover rounded-full ring-2 cursor-pointer"
-            alt="avatar"
-          >
-        </NDropdown>
+        <NButton @click="logout()">
+          <template #icon>
+            <NaiveIcon name="ph:sign-out" />
+          </template>
+          Logout
+        </NButton>
       </div>
     </template>
 
@@ -32,7 +25,7 @@
     </template>
 
     <template #drawer-footer>
-      <NButton secondary block @click="logout">
+      <NButton secondary block @click="logout()">
         Logout
       </NButton>
     </template>
@@ -51,49 +44,20 @@
 
 <script setup lang="ts">
 import type { MenuLinkRoute } from '@bg-dev/nuxt-naiveui'
-import type { DropdownOption } from 'naive-ui'
 import { NaiveIcon, AccountInfo } from '#components'
 
-const { user } = useAuthSession()
 const { logout } = useAuth()
 
-const routes: MenuLinkRoute[] = []
-
-const drawerRoutes: MenuLinkRoute[] = [
+const routes: MenuLinkRoute[] = [
+  {
+    label: 'Resumes',
+    icon: 'ph:folder',
+    path: '/'
+  },
   {
     label: 'Account',
     icon: 'ph:user',
     path: '/account'
   }
 ]
-
-const dropdownOptions: DropdownOption[] = [
-  {
-    key: 'header',
-    type: 'render',
-    render: () => h(AccountInfo)
-  },
-  {
-    key: 'divider',
-    type: 'divider'
-  },
-  {
-    label: 'Account',
-    key: 'account',
-    icon: () => h(NaiveIcon, { name: 'ph:user' })
-  },
-  {
-    label: 'Logout',
-    key: 'logout',
-    icon: () => h(NaiveIcon, { name: 'ph:sign-out' })
-  }
-]
-
-async function handleDropdownSelect (key: string) {
-  if (key === 'logout') {
-    await logout()
-  } else if (key === 'account') {
-    await navigateTo('/account')
-  }
-}
 </script>

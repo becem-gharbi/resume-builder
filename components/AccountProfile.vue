@@ -13,16 +13,7 @@
         <NInput v-model:value="model.name" />
       </NFormItem>
 
-      <div class="flex gap-2">
-        <NButton attr-type="reset" :disabled="pending || !edited" @click="handleReset">
-          Reset
-        </NButton>
-
-        <NButton attr-type="submit" :loading="pending" :disabled="pending || !edited" type="primary">
-          Update
-          profile
-        </NButton>
-      </div>
+      <FormButtons :loading="pending" :disabled="!edited || pending" @reset="handleReset" />
     </NForm>
   </div>
 </template>

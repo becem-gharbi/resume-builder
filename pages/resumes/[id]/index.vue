@@ -1,5 +1,5 @@
 <template>
-  <NCard class="md:w-2/3 md:mx-auto">
+  <NCard class="md:w-1/2 md:mx-auto">
     <template #header>
       <TextEditable :value="resume.title" @update:value="updateTitle" />
     </template>
