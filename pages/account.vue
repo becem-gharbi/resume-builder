@@ -1,21 +1,23 @@
 <template>
-  <div class="md:w-1/2 md:mx-auto flex flex-col gap-4">
-    <NCard title="Profile" segmented size="small">
-      <AccountProfile />
-    </NCard>
+  <NCard class="md:w-1/2 md:mx-auto flex flex-col gap-4" title="Account">
+    <NTabs type="line">
+      <NTabPane name="Profile" tab="Profile">
+        <AccountProfile />
+      </NTabPane>
 
-    <NCard v-if="user?.provider === 'default'" title="Password" segmented size="small">
-      <AccountPassword />
-    </NCard>
+      <NTabPane name="Preferences" tab="Preferences">
+        <AccountPreferences />
+      </NTabPane>
 
-    <NCard title="Preferences" segmented size="small">
-      <AccountPreferences />
-    </NCard>
+      <NTabPane v-if="user?.provider === 'default'" name="Security" tab="Security">
+        <AccountPassword />
+      </NTabPane>
 
-    <NCard title="Sessions" segmented size="small">
-      <AccountSessions />
-    </NCard>
-  </div>
+      <NTabPane name="Sessions" tab="Sessions">
+        <AccountSessions />
+      </NTabPane>
+    </NTabs>
+  </NCard>
 </template>
 
 <script setup>

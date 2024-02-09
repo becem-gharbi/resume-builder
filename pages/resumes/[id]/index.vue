@@ -1,38 +1,52 @@
 <template>
-  <div class="md:w-1/2 md:mx-auto">
-    <NPageHeader>
-      <template #title>
-        <TextEditable :value="resume.title" @update:value="updateTitle" />
-      </template>
+  <NCard class="md:w-1/2 md:mx-auto">
+    <template #header>
+      <TextEditable :value="resume.title" @update:value="updateTitle" />
+    </template>
 
-      <template #extra>
-        <div class="flex gap-2">
-          <NuxtLink :to="`/resumes/${resume.id}/preview`" target="_blank">
-            <NButton type="primary">
-              <template #icon>
-                <NaiveIcon name="ph:eye" />
-              </template>
-              Preview
-            </NButton>
-          </NuxtLink>
-
-          <NButton type="error" @click="onDelete">
-            Delete
+    <template #header-extra>
+      <div class="flex gap-2">
+        <NuxtLink :to="`/resumes/${resume.id}/preview`" target="_blank">
+          <NButton tertiary>
+            <template #icon>
+              <NaiveIcon name="ph:eye" />
+            </template>
           </NButton>
-        </div>
-      </template>
-    </NPageHeader>
+        </NuxtLink>
 
-    <ResumeHeaderForm v-model:resume="resume" class="mt-8" />
-  </div>
+        <NButton tertiary @click="onDelete">
+          <template #icon>
+            <NaiveIcon name="ph:trash" />
+          </template>
+        </NButton>
+      </div>
+    </template>
+
+    <NTabs type="line">
+      <NTabPane name="Header" tab="Header">
+        <ResumeHeaderForm v-model:resume="resume" />
+      </NTabPane>
+      <NTabPane name="Sections" tab="Sections">
+        <ResumeSections v-model:resume="resume" />
+      </NTabPane>
+    </NTabs>
+  </NCard>
 </template>
 
 <script setup>
 const { data: resume } = await useAsyncData(() => useResume().get(useRoute().params.id))
 
-async function onDelete () {
-  await useResume().remove(resume.value.id)
-  return navigateTo('/')
+const dialog = useDialog()
+
+function onDelete () {
+  dialog.error({
+    title: 'Delete the resume',
+    positiveText: 'Yes',
+    negativeText: 'No',
+    onPositiveClick: () => {
+      useResume().remove(resume.value.id).then(() => navigateTo('/'))
+    }
+  })
 }
 
 async function updateTitle (newTitle) {

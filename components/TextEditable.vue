@@ -1,5 +1,5 @@
 <template>
-  <div @click="showInput = true">
+  <div class="w-fit" @click="showInput = true">
     <NInput v-if="showInput" v-model:value="text" @keyup="onKeyup" />
     <NText v-else>
       {{ value }}

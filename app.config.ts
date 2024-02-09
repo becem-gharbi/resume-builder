@@ -16,6 +16,9 @@ export default defineAppConfig({
         },
         Notification: {
           padding: '16px'
+        },
+        Tabs: {
+          panePaddingMedium: '20px 0 0 0'
         }
       },
 

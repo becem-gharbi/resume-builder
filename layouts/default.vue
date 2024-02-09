@@ -37,9 +37,11 @@
       </NButton>
     </template>
 
-    <div class="flex-1 container mx-auto my-8 px-4">
-      <slot />
-    </div>
+    <NDialogProvider>
+      <div class="flex-1 container mx-auto my-8 px-4">
+        <slot />
+      </div>
+    </NDialogProvider>
 
     <NNotificationProvider placement="bottom-right">
       <NaiveNotification />
