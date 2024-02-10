@@ -1,6 +1,26 @@
 # Changelog
 
 
+## v0.1.1
+
+[compare changes](https://github.com/becem-gharbi/resume-builder/compare/v0.0.2...v0.1.1)
+
+### 🚀 Enhancements
+
+- Implement summary edit/preview ([9efcfff](https://github.com/becem-gharbi/resume-builder/commit/9efcfff))
+- Implement section html edit/preview ([4a5012c](https://github.com/becem-gharbi/resume-builder/commit/4a5012c))
+- Show last update on resume card ([d9095fc](https://github.com/becem-gharbi/resume-builder/commit/d9095fc))
+
+### 🏡 Chore
+
+- Download icons ([0f71d77](https://github.com/becem-gharbi/resume-builder/commit/0f71d77))
+- Add DATABASE_URL env variable ([790b77d](https://github.com/becem-gharbi/resume-builder/commit/790b77d))
+- Bump version to v0.1 ([92cd746](https://github.com/becem-gharbi/resume-builder/commit/92cd746))
+
+### ❤️ Contributors
+
+- Becem-gharbi <becem.gharbi@live.com>
+
 ## v0.0.2
 
 [compare changes](https://github.com/becem-gharbi/resume-builder/compare/v0.0.1...v0.0.2)
