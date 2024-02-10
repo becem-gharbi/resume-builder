@@ -1,12 +1,32 @@
 <template>
-  <div class="page p-8">
+  <div class="p-8">
     <ResumeHeader :resume="resume!" />
+
+    <div class="mt-16 flex gap-16">
+      <div class="w-full flex flex-col gap-8">
+        <ResumeSection
+          v-for="section of column0"
+          v-show="section.enabled"
+          :key="section.id"
+          :section="section"
+        />
+      </div>
+
+      <div class="w-full flex flex-col gap-8">
+        <ResumeSection
+          v-for="section of column1"
+          v-show="section.enabled"
+          :key="section.id"
+          :section="section"
+        />
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 definePageMeta({
-  layout: false,
+  layout: 'preview',
   colorMode: 'light'
 })
 
@@ -16,22 +36,7 @@ const { onUpdate } = useResume()
 const { data: resume, refresh } = await useAsyncData(() => useResume().get(id))
 
 onUpdate(id, refresh)
+
+const column0 = computed(() => resume.value?.sections.filter(s => s.column === 0))
+const column1 = computed(() => resume.value?.sections.filter(s => s.column === 1))
 </script>
-
-<style scoped>
-.page {
-  margin: 48px auto;
-  width: 210mm;
-  height: 297mm;
-  border: 2px solid #cbd5e1;
-}
-
-@media print {
-.page {
-  margin: auto;
-  width: auto;
-  height: auto;
-  border: none;
-}
-}
-</style>
