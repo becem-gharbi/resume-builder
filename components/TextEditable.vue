@@ -1,6 +1,6 @@
 <template>
   <div class="w-fit" @click="showInput = true">
-    <NInput v-if="showInput" v-model:value="text" @keyup="onKeyup" />
+    <NInput v-if="showInput" v-model:value="text" size="small" @keyup="onKeyup" />
     <NText v-else>
       {{ value }}
     </NText>
@@ -16,7 +16,7 @@ const showInput = ref(false)
 function onKeyup (event: { key: string }) {
   if (event.key === 'Enter') {
     showInput.value = false
-    emits('update:value', text.value.trim())
+    emits('update:value', text.value.trim() || '--')
   }
 }
 </script>
