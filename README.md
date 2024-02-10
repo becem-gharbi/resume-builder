@@ -1,4 +1,4 @@
-# 📄 Resume Builder
+# Resume Builder
 
 This web application is intended to build minimal Resumes with HTML. 
 
