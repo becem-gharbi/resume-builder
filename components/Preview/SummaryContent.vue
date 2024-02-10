@@ -1,5 +1,5 @@
 <template>
-  <NText>{{ section.content }}</NText>
+  <NText><div v-html="section.content" /></NText>
 </template>
 
 <script setup lang="ts">

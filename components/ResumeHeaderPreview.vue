@@ -4,7 +4,7 @@
       <NText class="text-2xl font-semibold">
         {{ resume.header.name }}
       </NText>
-      <NText class="text-base text-blue-600">
+      <NText class="text-base text-blue-700">
         {{ resume.header.title }}
       </NText>
       <div class="flex mt-2 gap-4">

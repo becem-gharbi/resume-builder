@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="border-b-2  mb-4">
+    <div class="border-b-2 border-slate-200  mb-4">
       <NText class="font-normal">
         {{ section.title.toUpperCase() }}
       </NText>

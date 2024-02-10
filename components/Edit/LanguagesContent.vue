@@ -1,5 +1,5 @@
 <template>
-  <TextEditable :value="section.content" @update:value="v => $emit('update:content', v)" />
+  <HtmlInput :value="section.content" @update:value="v => $emit('update:content', v)" />
 </template>
 
 <script setup lang="ts">

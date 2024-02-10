@@ -27,6 +27,8 @@
     "nuxt-s3": "1.1.2"
   },
   "dependencies": {
+    "@types/js-beautify": "^1.14.3",
+    "js-beautify": "^1.14.11",
     "ua-parser-js": "^1.0.37",
     "vuedraggable": "^4.1.0"
   },
