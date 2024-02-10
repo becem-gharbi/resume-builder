@@ -28,7 +28,7 @@ export function useResume () {
   }
 
   async function get (id: string) {
-    return await $auth.fetch(`/api/resumes/${id}`)
+    return await $auth.fetch<Resume>(`/api/resumes/${id}`)
   }
 
   async function update (id: string, data: Partial<Resume>) {

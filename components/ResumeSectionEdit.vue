@@ -7,7 +7,15 @@
     </div>
 
     <NCollapseTransition class="mt-8" :show="expanded">
-      {{ section.id }}
+      <EditCertificationsContent v-if="section.type === 'certifications'" :section="section" @update:content="updateContent" />
+      <EditEducationContent v-else-if="section.type === 'education'" :section="section" @update:content="updateContent" />
+      <EditExperienceContent v-else-if="section.type === 'experience'" :section="section" @update:content="updateContent" />
+      <EditLanguagesContent v-else-if="section.type === 'languages'" :section="section" @update:content="updateContent" />
+      <EditProjectsContent v-else-if="section.type === 'projects'" :section="section" @update:content="updateContent" />
+      <EditSkillsContent v-else-if="section.type === 'skills'" :section="section" @update:content="updateContent" />
+      <EditStrengthsContent v-else-if="section.type === 'strengths'" :section="section" @update:content="updateContent" />
+      <EditSummaryContent v-else-if="section.type === 'summary'" :section="section" @update:content="updateContent" />
+      <EditVolunteeringContent v-else-if="section.type === 'volunteering'" :section="section" @update:content="updateContent" />
     </NCollapseTransition>
   </div>
 </template>
@@ -36,6 +44,13 @@ async function updateTitle (newTitle: string) {
   section.value.title = newTitle
 
   const data = [{ id: section.value.id, title: section.value.title }]
+  await updateSections(props.resumeId, data)
+}
+
+async function updateContent (newContent: string) {
+  section.value.content = newContent
+
+  const data = [{ id: section.value.id, content: section.value.content }]
   await updateSections(props.resumeId, data)
 }
 </script>

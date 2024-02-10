@@ -1,8 +1,23 @@
-declare global {
-    const get = useResume().get
-    type Resume = Awaited<ReturnType<typeof get>>
-    type Section = Resume['sections'][0]
-    type Header = Resume['header']
-}
+import type {
+  Resume as _Resume,
+  Header as _Header,
+  Section as _Section,
+} from "@prisma/client";
 
-export { }
+type SectionType =
+  | "summary"
+  | "experience"
+  | "education"
+  | "languages"
+  | "skills"
+  | "projects"
+  | "volunteering"
+  | "certifications"
+  | "strengths";
+
+declare global {
+  type Header = _Header;
+  type Section = _Section & { type: SectionType };
+  type Resume = _Resume & { header: _Header; sections: Section[] };
+}
+export {};

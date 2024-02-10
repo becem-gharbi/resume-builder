@@ -74,7 +74,7 @@ export default defineEventHandler(async (event) => {
           },
           {
             title: 'Strengths',
-            type: 'Strengths',
+            type: 'strengths',
             column: 1,
             order: 5
           }
