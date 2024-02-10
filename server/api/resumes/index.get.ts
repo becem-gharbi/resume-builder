@@ -4,10 +4,6 @@ export default defineEventHandler((event) => {
   return event.context.prisma.resume.findMany({
     where: {
       userId
-    },
-    include: {
-      header: true,
-      sections: true
     }
   })
 })

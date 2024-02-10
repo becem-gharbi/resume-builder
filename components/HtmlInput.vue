@@ -17,6 +17,8 @@ const emits = defineEmits(['update:value'])
 
 const content = ref(props.value)
 
+content.value = jsBeautify.html_beautify(content.value)
+
 const onInput = debounce(() => {
   content.value = jsBeautify.html_beautify(content.value)
   emits('update:value', content.value)
