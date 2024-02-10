@@ -1,10 +1,10 @@
 <template>
   <div class="p-8">
-    <ResumeHeader :resume="resume!" />
+    <ResumeHeaderPreview :resume="resume!" />
 
     <div class="mt-16 flex gap-16">
       <div class="w-full flex flex-col gap-8">
-        <ResumeSection
+        <ResumeSectionPreview
           v-for="section of column0"
           v-show="section.enabled"
           :key="section.id"
@@ -13,7 +13,7 @@
       </div>
 
       <div class="w-full flex flex-col gap-8">
-        <ResumeSection
+        <ResumeSectionPreview
           v-for="section of column1"
           v-show="section.enabled"
           :key="section.id"

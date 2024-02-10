@@ -24,10 +24,10 @@
 
     <NTabs type="line">
       <NTabPane name="Header" tab="Header">
-        <ResumeHeaderForm v-model:resume="resume" />
+        <ResumeHeaderEdit v-model:resume="resume" />
       </NTabPane>
       <NTabPane name="Sections" tab="Sections">
-        <ResumeSections v-model:resume="resume" />
+        <ResumeSectionsEdit v-model:resume="resume" />
       </NTabPane>
     </NTabs>
   </NCard>

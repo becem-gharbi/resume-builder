@@ -8,7 +8,7 @@
       @change="onReorder"
     >
       <template #item="{ element }">
-        <ResumeSectionItem :section="element" />
+        <ResumeSectionEdit :section="element" />
       </template>
     </Draggable>
 
@@ -20,7 +20,7 @@
       @change="onReorder"
     >
       <template #item="{ element }">
-        <ResumeSectionItem :section="element" />
+        <ResumeSectionEdit :section="element" />
       </template>
     </Draggable>
   </div>
