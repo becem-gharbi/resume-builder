@@ -6,7 +6,13 @@
 
     <div class="mt-8 flex flex-wrap gap-6">
       <ResumeCreate />
-      <ResumeCard v-for="resume of resumes" :id="resume.id" :key="resume.id" :title="resume.title" />
+      <ResumeCard
+        v-for="resume of resumes"
+        :id="resume.id"
+        :key="resume.id"
+        :title="resume.title"
+        :updated-at="resume.updatedAt"
+      />
     </div>
   </div>
 </template>

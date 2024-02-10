@@ -1,11 +1,11 @@
 <template>
   <NList>
     <NListItem v-for="session of sessions" :key="session.id">
-      <n-thing>
+      <NThing>
         <template #avatar>
-          <n-tag :type="session.current ? 'success' : 'warning'" size="small">
+          <NTag :type="session.current ? 'success' : 'warning'" size="small">
             {{ session.current ? 'Current' : 'Active' }}
-          </n-tag>
+          </NTag>
         </template>
 
         <template #header>
@@ -32,7 +32,7 @@
             </template>
           </NButton>
         </template>
-      </n-thing>
+      </NThing>
     </NListItem>
   </Nlist>
 </template>

@@ -1,9 +1,9 @@
 <template>
   <span class="flex gap-1 items-center">
     <NaiveIcon :name="icon" :size="18" />
-    <n-text>
+    <NText>
       <slot />
-    </n-text>
+    </NText>
   </span>
 </template>
 
