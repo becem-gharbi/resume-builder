@@ -1,5 +1,5 @@
 <template>
-  <div class="flex gap-8">
+  <div class="flex gap-4">
     <Draggable
       class="w-full"
       :list="column0"
@@ -8,7 +8,7 @@
       @change="onReorder"
     >
       <template #item="{ element }">
-        <ResumeSectionEdit :section="element" />
+        <ResumeSectionEdit :section="element" :resume-id="resume.id" class="my-2" />
       </template>
     </Draggable>
 
@@ -20,7 +20,7 @@
       @change="onReorder"
     >
       <template #item="{ element }">
-        <ResumeSectionEdit :section="element" />
+        <ResumeSectionEdit :section="element" :resume-id="resume.id" class="my-2" />
       </template>
     </Draggable>
   </div>
@@ -30,27 +30,22 @@
 import Draggable from 'vuedraggable'
 
 const props = defineProps<{ resume: Resume }>()
+const emits = defineEmits(['update:resume'])
+
 const { updateSections } = useResume()
 
-const column0 = ref(props.resume.sections.filter(s => s.column === 0))
-const column1 = ref(props.resume.sections.filter(s => s.column === 1))
+const column0 = computed(() => props.resume.sections.filter(s => s.column === 0))
+const column1 = computed(() => props.resume.sections.filter(s => s.column === 1))
 
 async function onReorder () {
-  column0.value.forEach((section, index) => {
-    section.column = 0
-    section.order = index
-  })
-
-  column1.value.forEach((section, index) => {
-    section.column = 1
-    section.order = index
-  })
-
-  const data = [
-    ...column0.value.map(({ id, column, order }) => ({ id, column, order })),
-    ...column1.value.map(({ id, column, order }) => ({ id, column, order }))
+  const sections = [
+    ...column0.value.map((el, index) => ({ ...el, column: 0, order: index })),
+    ...column1.value.map((el, index) => ({ ...el, column: 1, order: index }))
   ]
 
+  emits('update:resume', { ...props.resume, sections })
+
+  const data = sections.map(({ id, column, order }) => ({ id, column, order }))
   await updateSections(props.resume.id, data)
 }
 </script>
