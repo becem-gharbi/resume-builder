@@ -21,9 +21,9 @@ export default defineAppConfig({
 
       light: {
         common: {
-          primaryColor: _colors.blue[500],
-          primaryColorHover: _colors.blue[400],
-          primaryColorPressed: _colors.blue[600],
+          primaryColor: _colors.blue[600],
+          primaryColorHover: _colors.blue[500],
+          primaryColorPressed: _colors.blue[700],
           borderColor: _colors.slate[300],
           bodyColor: _colors.white,
           inputColor: _colors.slate[50],

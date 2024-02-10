@@ -2,7 +2,7 @@
   <div class="p-8">
     <ResumeHeaderPreview :resume="resume!" />
 
-    <div class="mt-16 flex gap-16">
+    <div class="mt-16 flex-3 flex gap-12">
       <div class="w-full flex flex-col gap-8">
         <ResumeSectionPreview
           v-for="section of column0"
@@ -12,7 +12,7 @@
         />
       </div>
 
-      <div class="w-full flex flex-col gap-8">
+      <div class="w-full flex-2 flex flex-col gap-8">
         <ResumeSectionPreview
           v-for="section of column1"
           v-show="section.enabled"

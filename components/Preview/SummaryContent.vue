@@ -1,7 +1,5 @@
 <template>
-  <div>
-    {{ section.content }}
-  </div>
+  <NText>{{ section.content }}</NText>
 </template>
 
 <script setup lang="ts">
