@@ -27,13 +27,14 @@
 <script setup lang="ts">
 const props = defineProps<{ resume: Resume }>()
 const emits = defineEmits(['update:resume'])
+const { updateHeader } = useResume()
 
 const model = ref(props.resume)
 
 const { formRef, pending, edited, reset, onSubmit } = useNaiveForm(model)
 
 async function handleSubmit () {
-  await useResume().updateHeader(model.value.id, model.value.header)
+  await updateHeader(model.value.id, model.value.header)
 
   emits('update:resume', model.value)
 }

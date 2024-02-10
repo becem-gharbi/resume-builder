@@ -30,6 +30,7 @@
 import Draggable from 'vuedraggable'
 
 const props = defineProps<{ resume: Resume }>()
+const { updateSections } = useResume()
 
 const column0 = ref(props.resume.sections.filter(s => s.column === 0))
 const column1 = ref(props.resume.sections.filter(s => s.column === 1))
@@ -50,6 +51,6 @@ async function onReorder () {
     ...column1.value.map(({ id, column, order }) => ({ id, column, order }))
   ]
 
-  await useResume().updateSections(props.resume.id, data)
+  await updateSections(props.resume.id, data)
 }
 </script>

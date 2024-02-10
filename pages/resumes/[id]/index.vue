@@ -24,10 +24,7 @@
 
     <NTabs type="line">
       <NTabPane name="Header" tab="Header">
-        <ResumeHeaderForm
-          v-model:resume="resume"
-          @update:resume="broadcastChannel.postMessage('refresh')"
-        />
+        <ResumeHeaderForm v-model:resume="resume" />
       </NTabPane>
       <NTabPane name="Sections" tab="Sections">
         <ResumeSections v-model:resume="resume" />
@@ -40,8 +37,7 @@
 const { data: resume } = await useAsyncData(() => useResume().get(useRoute().params.id))
 
 const dialog = useDialog()
-
-const broadcastChannel = process.client && new BroadcastChannel(`resume:${resume.value.id}`)
+const { update } = useResume()
 
 function onDelete () {
   dialog.error({
@@ -55,7 +51,7 @@ function onDelete () {
 }
 
 async function updateTitle (newTitle) {
-  await useResume().update(resume.value.id, { title: newTitle })
+  await update(resume.value.id, { title: newTitle })
     .then(() => { resume.value.title = newTitle })
     .catch(e => useNaiveNotification().create({
       type: 'error',
