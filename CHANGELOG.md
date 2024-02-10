@@ -1,6 +1,34 @@
 # Changelog
 
 
+## v0.0.2
+
+[compare changes](https://github.com/becem-gharbi/resume-builder/compare/v0.0.1...v0.0.2)
+
+### 🚀 Enhancements
+
+- Implement sections reorder by drag ([790b139](https://github.com/becem-gharbi/resume-builder/commit/790b139))
+- Implement section show/hide ([2704434](https://github.com/becem-gharbi/resume-builder/commit/2704434))
+- Implement section title change ([0d7a11f](https://github.com/becem-gharbi/resume-builder/commit/0d7a11f))
+- Show account photo on preview ([b2bf760](https://github.com/becem-gharbi/resume-builder/commit/b2bf760))
+- Add print btn to `preview` page ([46c95fd](https://github.com/becem-gharbi/resume-builder/commit/46c95fd))
+- Implement basic section edit/preview ([dcaf845](https://github.com/becem-gharbi/resume-builder/commit/dcaf845))
+
+### 🔥 Performance
+
+- Avoid update when editable value not changed ([e23176b](https://github.com/becem-gharbi/resume-builder/commit/e23176b))
+
+### 💅 Refactors
+
+- Set resume preview size to A4 ([eafd980](https://github.com/becem-gharbi/resume-builder/commit/eafd980))
+- Implement resume sync on `useResume` ([09174ec](https://github.com/becem-gharbi/resume-builder/commit/09174ec))
+- Create `preview` layout ([cb34004](https://github.com/becem-gharbi/resume-builder/commit/cb34004))
+- Change resume components names ([2b7f026](https://github.com/becem-gharbi/resume-builder/commit/2b7f026))
+
+### ❤️ Contributors
+
+- Becem-gharbi <becem.gharbi@live.com>
+
 ## v0.0.1
 
 
