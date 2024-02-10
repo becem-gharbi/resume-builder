@@ -16,7 +16,11 @@ const showInput = ref(false)
 function onKeyup (event: { key: string }) {
   if (event.key === 'Enter') {
     showInput.value = false
-    emits('update:value', text.value.trim() || '--')
+    text.value = text.value.trim() || '--'
+
+    if (props.value !== text.value) {
+      emits('update:value', text.value)
+    }
   }
 }
 </script>
