@@ -53,36 +53,25 @@ model Header {
   id       String  @id @default(uuid())
   resumeId String  @unique
   resume   Resume  @relation(fields: [resumeId], references: [id], onDelete: Cascade)
-  name     String  @default("John Doe")
-  title    String  @default("Web Developer")
-  location String  @default("Washington, USA")
-  phone    String  @default("+123456")
-  email    String  @default("john.doe@exapmle.com")
+  name     String  @default("")
+  title    String  @default("")
+  location String  @default("")
+  phone    String  @default("")
+  email    String  @default("")
   photo    String?
 }
 
 model Section {
-  id       String        @id @default(uuid())
+  id       String  @id @default(uuid())
   resumeId String
-  resume   Resume        @relation(fields: [resumeId], references: [id], onDelete: Cascade)
+  resume   Resume  @relation(fields: [resumeId], references: [id], onDelete: Cascade)
   title    String
-  enabled  Boolean       @default(true)
-  column   Int           @default(0)
-  order    Int           @default(0)
+  enabled  Boolean @default(true)
+  column   Int     @default(0)
+  order    Int     @default(0)
   type     String
-  items    SectionItem[]
+  content  String  @default("")
+  // @@unique([resumeId, order, column])
 
   @@unique([resumeId, title])
-  @@unique([resumeId, order, column])
-}
-
-model SectionItem {
-  id        String  @id @default(uuid())
-  sectionId String
-  section   Section @relation(fields: [sectionId], references: [id], onDelete: Cascade)
-  type      String  @map("type")
-  data      String
-  order     Int     @default(0)
-
-  @@unique([sectionId, order])
 }

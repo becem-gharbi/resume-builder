@@ -7,14 +7,14 @@
     <template #header-extra>
       <div class="flex gap-2">
         <NuxtLink :to="`/resumes/${resume.id}/preview`" target="_blank">
-          <NButton tertiary>
+          <NButton tertiary size="small">
             <template #icon>
               <NaiveIcon name="ph:eye" />
             </template>
           </NButton>
         </NuxtLink>
 
-        <NButton tertiary @click="onDelete">
+        <NButton tertiary size="small" @click="onDelete">
           <template #icon>
             <NaiveIcon name="ph:trash" />
           </template>

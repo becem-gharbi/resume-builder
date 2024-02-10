@@ -27,7 +27,8 @@
     "nuxt-s3": "1.1.2"
   },
   "dependencies": {
-    "ua-parser-js": "^1.0.37"
+    "ua-parser-js": "^1.0.37",
+    "vuedraggable": "^4.1.0"
   },
   "overrides": {
     "vue": "3.4.8"

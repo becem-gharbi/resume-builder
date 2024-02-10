@@ -18,17 +18,7 @@ export default defineEventHandler(async (event) => {
       id
     },
     data: {
-      title: body.title,
-      header: {
-        update: {
-          title: body.header?.title,
-          email: body.header?.email,
-          location: body.header?.location,
-          name: body.header?.name,
-          phone: body.header?.phone,
-          photo: body.header?.photo
-        }
-      }
+      title: body.title
     }
   }).catch((e) => {
     if (e.code === 'P2002') {

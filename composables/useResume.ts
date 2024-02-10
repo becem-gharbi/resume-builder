@@ -28,5 +28,19 @@ export function useResume () {
     return await $auth.fetch(`/api/resumes/${id}`)
   }
 
-  return { get, getAll, update, remove, create }
+  async function updateHeader (id:string, data:Partial<Header>) {
+    return await $auth.fetch(`/api/resumes/${id}/header`, {
+      method: 'patch',
+      body: data
+    })
+  }
+
+  async function updateSections (id:string, data:Partial<Section>[]) {
+    return await $auth.fetch(`/api/resumes/${id}/sections`, {
+      method: 'patch',
+      body: data
+    })
+  }
+
+  return { get, getAll, update, remove, create, updateHeader, updateSections }
 }

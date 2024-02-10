@@ -33,10 +33,7 @@ const model = ref(props.resume)
 const { formRef, pending, edited, reset, onSubmit } = useNaiveForm(model)
 
 async function handleSubmit () {
-  await useResume().update(model.value.id, {
-    title: model.value.title,
-    header: model.value.header
-  })
+  await useResume().updateHeader(model.value.id, model.value.header)
 
   emits('update:resume', model.value)
 }
