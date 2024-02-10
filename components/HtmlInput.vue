@@ -4,6 +4,7 @@
     type="textarea"
     class="bg-inherit w-full p-2 border-none"
     autosize
+    placeholder="HTML content"
     @input="onInput"
   />
 </template>
@@ -16,12 +17,12 @@ const emits = defineEmits(['update:value'])
 
 const content = ref(props.value)
 
-const onInput = inputDebounce(() => {
+const onInput = debounce(() => {
   content.value = jsBeautify.html_beautify(content.value)
   emits('update:value', content.value)
 }, 3000)
 
-function inputDebounce (fn: (value: any) => void, interval: number) {
+function debounce (fn: (value: any) => void, interval: number) {
   let timer: NodeJS.Timeout
 
   return function (value: any) {

@@ -59,9 +59,11 @@ export function useResume () {
     getBroadcastChannel(id)?.addEventListener('message', cb)
   }
 
-  onUnmounted(() => {
-    broadcastChannel?.close()
-  })
+  if (broadcastChannel) {
+    onUnmounted(() => {
+      broadcastChannel?.close()
+    })
+  }
 
   return { get, getAll, update, remove, create, updateHeader, updateSections, onUpdate }
 }

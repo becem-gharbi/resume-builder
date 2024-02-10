@@ -35,7 +35,7 @@ const { onUpdate } = useResume()
 
 const { data: resume, refresh } = await useAsyncData(() => useResume().get(id))
 
-onUpdate(id, refresh)
+onUpdate(id, () => refresh())
 
 const column0 = computed(() => resume.value?.sections.filter(s => s.column === 0))
 const column1 = computed(() => resume.value?.sections.filter(s => s.column === 1))

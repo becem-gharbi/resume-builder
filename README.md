@@ -1,6 +1,6 @@
-# Resume Builder
+# 📄 Resume Builder
 
-This basic application is intended to build Resumes with HTML.
+This web application is intended to build minimal Resumes with HTML. 
 
 ## Setup
 
