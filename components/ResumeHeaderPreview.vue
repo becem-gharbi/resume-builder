@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="flex">
     <div class="flex flex-col gap-3 flex-grow">
       <NText class="text-2xl font-semibold">
         {{ resume.header.name }}
@@ -18,6 +18,10 @@
           {{ resume.header.location }}
         </TextIcon>
       </div>
+    </div>
+
+    <div v-if="resume.header.photo" class="overflow-hidden rounded-full w-32 h-32">
+      <img :src="resume.header.photo" class="w-32 h-32 object-cover" alt="avatar">
     </div>
   </div>
 </template>

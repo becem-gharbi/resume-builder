@@ -71,7 +71,6 @@ model Section {
   order    Int     @default(0)
   type     String
   content  String  @default("")
-  // @@unique([resumeId, order, column])
 
   @@unique([resumeId, title])
 }

@@ -37,7 +37,7 @@ async function updateAccount () {
   if (model.value.file) {
     const url = await useS3Object().upload(model.value.file, {
       url: model.value.picture,
-      prefix: `${user.value!.id}/`,
+      key: `${user.value!.id}/photo`,
       meta: {
         'user-id': user.value!.id
       }
