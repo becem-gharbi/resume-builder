@@ -1,6 +1,27 @@
 # Changelog
 
 
+## v0.1.2
+
+[compare changes](https://github.com/becem-gharbi/resume-builder/compare/v0.1.1...v0.1.2)
+
+### 🚀 Enhancements
+
+- Create HTML editor component ([ea249c1](https://github.com/becem-gharbi/resume-builder/commit/ea249c1))
+
+### 💅 Refactors
+
+- Minor refactoring ([e2361d6](https://github.com/becem-gharbi/resume-builder/commit/e2361d6))
+- Change auth layout ([25264c1](https://github.com/becem-gharbi/resume-builder/commit/25264c1))
+
+### 🏡 Chore
+
+- Remove extra components ([fa48883](https://github.com/becem-gharbi/resume-builder/commit/fa48883))
+
+### ❤️ Contributors
+
+- Becem-gharbi <becem.gharbi@live.com>
+
 ## v0.1.1
 
 [compare changes](https://github.com/becem-gharbi/resume-builder/compare/v0.0.2...v0.1.1)
