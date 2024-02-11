@@ -20,8 +20,8 @@
       </div>
     </div>
 
-    <div v-if="resume.header.photo" class="overflow-hidden rounded-full w-32 h-32">
-      <img :src="resume.header.photo" class="w-32 h-32 object-cover" alt="avatar">
+    <div v-if="resume.header.photo" class="overflow-hidden rounded-full w-28 h-28">
+      <img :src="resume.header.photo" class="w-28 h-28 object-cover" alt="avatar">
     </div>
   </div>
 </template>
