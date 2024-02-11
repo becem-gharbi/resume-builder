@@ -13,7 +13,9 @@
         placeholder="HTML content"
         @input="onInput"
       />
-      <div :style="{width:'340px'}" class="border p-2 border-slate-200 dark:border-slate-800 rounded" v-html="content" />
+      <n-scrollbar :style="{width:'340px'}" class="border p-2 border-slate-200 dark:border-slate-800 rounded">
+        <span v-html="content" />
+      </n-scrollbar>
     </div>
 
     <FormButtons @submit="$emit('update:value', content)" @reset="$emit('cancel')" />
