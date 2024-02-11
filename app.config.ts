@@ -59,7 +59,8 @@ export default defineAppConfig({
           bodyColor: _colors.slate[950],
           inputColor: _colors.slate[900],
           popoverColor: _colors.slate[900],
-          hoverColor: _colors.slate[800]
+          hoverColor: _colors.slate[800],
+          modalColor: _colors.slate[900]
         },
         Layout: {
           headerColor: _colors.slate[950],

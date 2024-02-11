@@ -1,9 +1,9 @@
 <template>
   <div class="flex gap-4">
     <NButton secondary attr-type="reset" :disabled="disabled" @click="$emit('reset')">
-      Reset
+      Cancel
     </NButton>
-    <NButton type="primary" attr-type="submit" :loading="loading" :disabled="disabled">
+    <NButton type="primary" attr-type="submit" :loading="loading" :disabled="disabled" @click="$emit('submit')">
       Save
     </NButton>
   </div>
@@ -11,5 +11,5 @@
 
 <script setup lang="ts">
 defineProps<{ loading?: boolean, disabled?: boolean }>()
-defineEmits(['reset'])
+defineEmits(['reset', 'submit'])
 </script>

@@ -1,22 +1,14 @@
 <template>
   <div class="p-4 border dark:border-slate-800 border-slate-300">
-    <div class="flex items-center gap-2">
+    <div class="flex items-center gap-4">
       <TextEditable :value="section.title" class="font-semibold flex-grow" @update:value="updateTitle" />
       <NaiveIcon :name="section.enabled ? 'ph:eye': 'ph:eye-slash'" class="cursor-pointer" @click="toggleEnabled()" />
-      <NaiveIcon :name="expanded ? 'ph:arrow-up': 'ph:arrow-down'" class="cursor-pointer" @click="toggleExpanded()" />
+      <NaiveIcon name="ph:pencil-simple-line" class="cursor-pointer" @click="showEditModal = true" />
     </div>
 
-    <NCollapseTransition class="mt-8" :show="expanded">
-      <EditCertificationsContent v-if="section.type === 'certifications'" :section="section" @update:content="updateContent" />
-      <EditEducationContent v-else-if="section.type === 'education'" :section="section" @update:content="updateContent" />
-      <EditExperienceContent v-else-if="section.type === 'experience'" :section="section" @update:content="updateContent" />
-      <EditLanguagesContent v-else-if="section.type === 'languages'" :section="section" @update:content="updateContent" />
-      <EditProjectsContent v-else-if="section.type === 'projects'" :section="section" @update:content="updateContent" />
-      <EditSkillsContent v-else-if="section.type === 'skills'" :section="section" @update:content="updateContent" />
-      <EditStrengthsContent v-else-if="section.type === 'strengths'" :section="section" @update:content="updateContent" />
-      <EditSummaryContent v-else-if="section.type === 'summary'" :section="section" @update:content="updateContent" />
-      <EditVolunteeringContent v-else-if="section.type === 'volunteering'" :section="section" @update:content="updateContent" />
-    </NCollapseTransition>
+    <NModal :show="showEditModal" :closable="false" preset="card" class="max-w-fit">
+      <HTMLEditor :value="section.content" @update:value="updateContent" @cancel="showEditModal = false" />
+    </NModal>
   </div>
 </template>
 
@@ -25,13 +17,9 @@ const props = defineProps<{ resumeId: string, section: Section }>()
 
 const section = ref(props.section)
 
-const expanded = ref(false)
+const showEditModal = ref(false)
 
 const { updateSections } = useResume()
-
-function toggleExpanded () {
-  expanded.value = !expanded.value
-}
 
 async function toggleEnabled () {
   section.value.enabled = !section.value.enabled
@@ -48,6 +36,7 @@ async function updateTitle (newTitle: string) {
 }
 
 async function updateContent (newContent: string) {
+  showEditModal.value = false
   section.value.content = newContent
 
   const data = [{ id: section.value.id, content: section.value.content }]
