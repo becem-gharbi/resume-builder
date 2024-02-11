@@ -28,7 +28,7 @@
         </NButton>
 
         <NuxtLink to="/auth/register">
-          <NButton attr-type="button" block>
+          <NButton attr-type="button" block type="success">
             Create Account
           </NButton>
         </NuxtLink>

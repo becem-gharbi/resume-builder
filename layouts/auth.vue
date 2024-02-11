@@ -1,23 +1,18 @@
 <template>
-  <div class="page">
-    <div class="flex-1 flex">
-      <div class="md:w-1/4 w-full flex flex-col m-8 gap-4">
-        <div>
-          <NText class="text-lg font-medium">
-            Resume Builder
-          </NText>
-          <br>
-          <NText class="text-lg" :depth="3">
-            {{ title }}
-          </NText>
-        </div>
+  <div class="page justify-center items-center p-7">
+    <NuxtLink to="/" class="flex items-center gap-2">
+      <NaiveIcon name="ph:read-cv-logo" :size="25" />
+      <NText strong class="text-lg">
+        Resume Builder
+      </NText>
+    </NuxtLink>
 
-        <div class="w-full my-auto">
-          <slot />
-        </div>
-      </div>
+    <n-text class="text-base font-medium mt-1 mr-auto sm:mr-0" depth="3">
+      {{ title }}
+    </n-text>
 
-      <div class="md:w-3/4 hidden md:block bg-gradient-to-r from-cyan-500 to-blue-500" />
+    <div class="w-full my-auto sm:max-w-sm sm:p-6 sm:shadow-md sm:rounded-md">
+      <slot />
     </div>
   </div>
 </template>
@@ -38,6 +33,9 @@ const title = computed(() => {
 
     case 'auth-reset-password':
       return 'Reset your password'
+
+    case 'auth-verify-email':
+      return 'Email verification'
   }
 })
 </script>

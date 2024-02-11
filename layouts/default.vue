@@ -1,7 +1,7 @@
 <template>
   <NaiveLayoutNavbar :routes="routes" :drawer-routes="routes">
     <template #start>
-      <NuxtLink to="/" class="flex items-center gap-3">
+      <NuxtLink to="/" class="flex items-center gap-2">
         <NaiveIcon name="ph:read-cv-logo" :size="25" />
         <NText strong>
           Resume Builder
