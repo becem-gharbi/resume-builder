@@ -1,13 +1,15 @@
 export function useResume () {
   const { $auth } = useNuxtApp()
 
-  // Used to sync changes between edit and preview pages
-  let broadcastChannel: BroadcastChannel | undefined
+  function broadcastMessage (id: string, message: string) {
+    const broadcastChannel = new BroadcastChannel(`resume:${id}`)
+    broadcastChannel.postMessage(message)
+    broadcastChannel.close()
+  }
 
-  function getBroadcastChannel (id: string) {
-    if (process.client) {
-      broadcastChannel ||= new BroadcastChannel(`resume:${id}`)
-    }
+  function onUpdate (id: string, cb: () => any) {
+    const broadcastChannel = new BroadcastChannel(`resume:${id}`)
+    broadcastChannel.addEventListener('message', cb)
     return broadcastChannel
   }
 
@@ -36,7 +38,7 @@ export function useResume () {
       method: 'patch',
       body: data
     })
-    getBroadcastChannel(id)?.postMessage('refresh')
+    broadcastMessage(id, 'refresh')
   }
 
   async function updateHeader (id:string, data:Partial<Header>) {
@@ -44,7 +46,7 @@ export function useResume () {
       method: 'patch',
       body: data
     })
-    getBroadcastChannel(id)?.postMessage('refresh')
+    broadcastMessage(id, 'refresh')
   }
 
   async function updateSections (id:string, data:Partial<Section>[]) {
@@ -52,17 +54,7 @@ export function useResume () {
       method: 'patch',
       body: data
     })
-    getBroadcastChannel(id)?.postMessage('refresh')
-  }
-
-  function onUpdate (id: string, cb: () => any) {
-    getBroadcastChannel(id)?.addEventListener('message', cb)
-  }
-
-  if (broadcastChannel) {
-    onUnmounted(() => {
-      broadcastChannel?.close()
-    })
+    broadcastMessage(id, 'refresh')
   }
 
   return { get, getAll, update, remove, create, updateHeader, updateSections, onUpdate }
