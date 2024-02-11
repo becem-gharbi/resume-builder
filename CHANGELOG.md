@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v0.1.3
+
+[compare changes](https://github.com/becem-gharbi/resume-builder/compare/v0.1.2...v0.1.3)
+
+### 🩹 Fixes
+
+- Make HTML editor preview scrollbar ([836d331](https://github.com/becem-gharbi/resume-builder/commit/836d331))
+- Fix sync between preview/edit pages in prod ([3311fb0](https://github.com/becem-gharbi/resume-builder/commit/3311fb0))
+
+### 💅 Refactors
+
+- Reduce photo size in preview ([2b65fed](https://github.com/becem-gharbi/resume-builder/commit/2b65fed))
+
+### ❤️ Contributors
+
+- Becem-gharbi <becem.gharbi@live.com>
+
 ## v0.1.2
 
 [compare changes](https://github.com/becem-gharbi/resume-builder/compare/v0.1.1...v0.1.2)
