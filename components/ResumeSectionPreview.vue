@@ -5,7 +5,9 @@
         {{ section.title.toUpperCase() }}
       </NText>
     </div>
-    <MdPreview :model-value="section.content" />
+    <NText>
+      <MdPreview :model-value="section.content" />
+    </NText>
   </div>
 </template>
 

@@ -1,6 +1,13 @@
 <template>
   <div class="flex flex-col gap-4">
-    <MdEditor v-model="content" :theme="colorMode" language="en-US" :style="{padding:'4px'}" />
+    <MdEditor
+      v-model="content"
+      :theme="colorMode"
+      language="en-US"
+      :style="{padding:'4px'}"
+      :html-preview="false"
+      :no-upload-img="true"
+    />
 
     <FormButtons @submit="$emit('update:value', content)" @reset="$emit('cancel')" />
   </div>
