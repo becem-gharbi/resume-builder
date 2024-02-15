@@ -13,6 +13,11 @@ export default defineEventHandler(async (event) => {
     data: {
       userId,
       title,
+      styles: {
+        create: {
+          fontFamily: 'Rubik'
+        }
+      },
       header: {
         create: {
           name: 'John Doe',

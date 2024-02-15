@@ -10,6 +10,7 @@ export default defineEventHandler(async (event) => {
     },
     include: {
       header: true,
+      styles: true,
       sections: {
         orderBy: [
           { column: 'asc' },

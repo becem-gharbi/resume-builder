@@ -1,5 +1,5 @@
 <template>
-  <div class="p-8">
+  <div class="p-8" :style="style">
     <ResumeHeaderPreview :resume="resume!" />
 
     <div class="mt-16 flex-3 flex gap-12">
@@ -41,4 +41,15 @@ onUnmounted(() => channel.close())
 
 const column0 = computed(() => resume.value?.sections.filter(s => s.column === 0))
 const column1 = computed(() => resume.value?.sections.filter(s => s.column === 1))
+
+useHead(() => ({
+  link: [{
+    rel: 'stylesheet',
+    href: `https://fonts.googleapis.com/css2?family=${resume.value?.styles.fontFamily}:wght@400;500;600&display=swap`
+  }]
+}))
+
+const style = computed(() => ({
+  fontFamily: resume.value?.styles.fontFamily
+}))
 </script>

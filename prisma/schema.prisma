@@ -40,6 +40,7 @@ model Resume {
   id        String    @id @default(uuid())
   title     String
   header    Header?
+  styles    Styles?
   sections  Section[]
   userId    String
   user      User      @relation(fields: [userId], references: [id])
@@ -47,6 +48,13 @@ model Resume {
   updatedAt DateTime  @updatedAt
 
   @@unique([title, userId])
+}
+
+model Styles {
+  id         String @id @default(uuid())
+  resumeId   String @unique
+  resume     Resume @relation(fields: [resumeId], references: [id], onDelete: Cascade)
+  fontFamily String @default("")
 }
 
 model Header {

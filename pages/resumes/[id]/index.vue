@@ -23,6 +23,9 @@
     </template>
 
     <NTabs type="line">
+      <NTabPane name="Styles" tab="Styles">
+        <ResumeStylesEdit v-model:resume="resume" />
+      </NTabPane>
       <NTabPane name="Header" tab="Header">
         <ResumeHeaderEdit v-model:resume="resume" />
       </NTabPane>

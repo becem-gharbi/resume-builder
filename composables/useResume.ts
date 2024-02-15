@@ -57,5 +57,13 @@ export function useResume () {
     broadcastMessage(id, 'refresh')
   }
 
-  return { get, getAll, update, remove, create, updateHeader, updateSections, onUpdate }
+  async function updateStyles (id:string, data:Partial<Styles>) {
+    await $auth.fetch(`/api/resumes/${id}/styles`, {
+      method: 'patch',
+      body: data
+    })
+    broadcastMessage(id, 'refresh')
+  }
+
+  return { get, getAll, update, remove, create, updateHeader, updateSections, onUpdate, updateStyles }
 }
