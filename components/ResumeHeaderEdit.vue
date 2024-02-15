@@ -22,7 +22,7 @@
 
     <NFormItem label="Photo">
       <n-checkbox v-model:checked="showPhoto">
-        Show photo
+        Show
       </n-checkbox>
     </NFormItem>
 
