@@ -7,7 +7,7 @@
     </div>
 
     <NModal :show="showEditModal" :closable="false" preset="card" class="max-w-fit">
-      <HTMLEditor :value="section.content" @update:value="updateContent" @cancel="showEditModal = false" />
+      <MarkdownEditor :value="section.content" @update:value="updateContent" @cancel="showEditModal = false" />
     </NModal>
   </div>
 </template>

@@ -6,3 +6,9 @@
     </NuxtLayout>
   </NaiveConfig>
 </template>
+
+<style>
+ol, ul {
+  list-style: inside !important;
+}
+</style>

@@ -5,10 +5,12 @@
         {{ section.title.toUpperCase() }}
       </NText>
     </div>
-    <NText><span v-html="section.content" /></NText>
+    <MdPreview :model-value="section.content" />
   </div>
 </template>
 
 <script setup lang="ts">
+import { MdPreview } from 'md-editor-v3'
+
 defineProps<{section: Section}>()
 </script>
