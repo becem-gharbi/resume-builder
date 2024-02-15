@@ -8,13 +8,13 @@
         {{ resume.header.title }}
       </NText>
       <div class="flex mt-2 gap-4">
-        <TextIcon icon="ph:phone-duotone">
+        <TextIcon v-if="resume.header.phone" icon="ph:phone-duotone">
           {{ resume.header.phone }}
         </TextIcon>
-        <TextIcon icon="ph:envelope-duotone">
+        <TextIcon v-if="resume.header.email " icon="ph:envelope-duotone">
           {{ resume.header.email }}
         </TextIcon>
-        <TextIcon icon="ph:map-pin-duotone">
+        <TextIcon v-if="resume.header.location" icon="ph:map-pin-duotone">
           {{ resume.header.location }}
         </TextIcon>
       </div>
