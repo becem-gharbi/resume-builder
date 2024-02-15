@@ -22,7 +22,7 @@
       </div>
     </template>
 
-    <NTabs type="line">
+    <NTabs type="card">
       <NTabPane name="Styles">
         <template #tab>
           <TextIcon icon="ph:palette">
