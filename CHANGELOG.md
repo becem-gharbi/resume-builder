@@ -1,6 +1,43 @@
 # Changelog
 
 
+## v0.1.4
+
+[compare changes](https://github.com/becem-gharbi/resume-builder/compare/v0.1.3...v0.1.4)
+
+### 🚀 Enhancements
+
+- **sections:** Replace HTML with Markdown editor ([7b0101c](https://github.com/becem-gharbi/resume-builder/commit/7b0101c))
+- **resume:** Add styles customization ([e337a94](https://github.com/becem-gharbi/resume-builder/commit/e337a94))
+- **resume:** Add padding and color styles selection ([d03f8cd](https://github.com/becem-gharbi/resume-builder/commit/d03f8cd))
+
+### 🩹 Fixes
+
+- **header:** Hide icon if content is empty ([7b34620](https://github.com/becem-gharbi/resume-builder/commit/7b34620))
+
+### 💅 Refactors
+
+- Hide extra features of MdEditor ([3aa460a](https://github.com/becem-gharbi/resume-builder/commit/3aa460a))
+- **sections:** Follow official approach to hide extra toolbar buttons ([975ba70](https://github.com/becem-gharbi/resume-builder/commit/975ba70))
+- Add icons to tab labels ([1b0fec0](https://github.com/becem-gharbi/resume-builder/commit/1b0fec0))
+- Change tabs type to card ([26fa83f](https://github.com/becem-gharbi/resume-builder/commit/26fa83f))
+
+### 📖 Documentation
+
+- Update README ([8e9b54e](https://github.com/becem-gharbi/resume-builder/commit/8e9b54e))
+
+### 🏡 Chore
+
+- Upgrade nuxt-auth and make needed changes ([47cfe07](https://github.com/becem-gharbi/resume-builder/commit/47cfe07))
+- Add cockroachdb schema ([4a9717b](https://github.com/becem-gharbi/resume-builder/commit/4a9717b))
+- Update example.env ([2f8c20c](https://github.com/becem-gharbi/resume-builder/commit/2f8c20c))
+- Sync lock ([0f17e52](https://github.com/becem-gharbi/resume-builder/commit/0f17e52))
+- Reduce max file size ([c076fa1](https://github.com/becem-gharbi/resume-builder/commit/c076fa1))
+
+### ❤️ Contributors
+
+- Becem-gharbi <becem.gharbi@live.com>
+
 ## v0.1.3
 
 [compare changes](https://github.com/becem-gharbi/resume-builder/compare/v0.1.2...v0.1.3)
