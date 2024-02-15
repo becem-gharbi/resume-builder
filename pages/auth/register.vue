@@ -133,16 +133,14 @@ rules.value = {
 }
 
 async function handleSubmit () {
-  const { error } = await register({
+  await register({
     email: model.value.email,
     password: model.value.password,
     name: model.value.firstName + ' ' + model.value.lastName
-  })
-
-  if (error.value) {
-    apiErrors.value.emailAlreadyExists = error.value.data?.message.includes('email-used-with') || false
-  } else {
+  }).then(async () => {
     success.value = true
-  }
+  }).catch((error) => {
+    apiErrors.value.emailAlreadyExists = error.data.message.includes('email-used-with') || false
+  })
 }
 </script>

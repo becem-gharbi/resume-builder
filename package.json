@@ -15,28 +15,31 @@
     "migrate": "prisma migrate dev"
   },
   "devDependencies": {
-    "@bg-dev/nuxt-auth": "2.4.2",
+    "@bg-dev/nuxt-auth": "2.4.3",
     "@bg-dev/nuxt-naiveui": "1.10.1",
     "@nuxt/devtools": "^1.0.8",
     "@nuxtjs/eslint-config": "^12.0.0",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
-    "@nuxtjs/tailwindcss": "^6.11.2",
+    "@nuxtjs/tailwindcss": "^6.11.4",
     "@types/ua-parser-js": "^0.7.39",
     "changelogen": "^0.5.5",
     "eslint": "^8.56.0",
-    "nuxt": "^3.10.0",
+    "nuxt": "^3.10.2",
     "nuxt-s3": "1.1.2"
   },
   "dependencies": {
     "@types/js-beautify": "^1.14.3",
     "js-beautify": "^1.14.11",
+    "md-editor-v3": "^4.11.2",
     "ua-parser-js": "^1.0.37",
     "vuedraggable": "^4.1.0"
   },
   "overrides": {
-    "vue": "3.4.8"
+    "vue": "3.4.8",
+    "vite": "5.0.12"
   },
   "resolutions": {
-    "vue": "3.4.8"
+    "vue": "3.4.8",
+    "vite": "5.0.12"
   }
 }

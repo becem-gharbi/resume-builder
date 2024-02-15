@@ -66,10 +66,7 @@ rules.value = {
 }
 
 async function handleSubmit () {
-  const { error } = await requestPasswordReset(model.value.email)
-
-  if (!error.value) {
-    success.value = true
-  }
+  await requestPasswordReset(model.value.email)
+  success.value = true
 }
 </script>
