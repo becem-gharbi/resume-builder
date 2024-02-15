@@ -23,10 +23,13 @@ const { updateStyles } = useResume()
 
 const model = ref(props.resume)
 
-model.value.styles ||= {}
-model.value.styles.fontFamily ||= 'Rubik'
-model.value.styles.color ||= 'Black'
-model.value.styles.padding ||= '16px'
+model.value.styles ||= {
+  resumeId: '',
+  id: '',
+  fontFamily: 'Rubik',
+  color: 'Black',
+  padding: '16px'
+}
 
 const { formRef, pending, edited, reset, onSubmit } = useNaiveForm(model)
 

@@ -95,7 +95,7 @@ rules.value = {
 }
 
 async function handleSubmit () {
- await login({
+  await login({
     email: model.value.email,
     password: model.value.password
   }).catch((error) => {

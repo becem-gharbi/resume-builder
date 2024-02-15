@@ -1,0 +1,86 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "cockroachdb"
+    url      = env("COCKROACH_DB_DATABASE_URL")
+}
+
+model User {
+    id                     String         @id @default(uuid())
+    name                   String
+    email                  String         @unique
+    picture                String
+    role                   String         @default("user")
+    provider               String         @default("default")
+    password               String?
+    verified               Boolean        @default(false)
+    suspended              Boolean        @default(false)
+    requestedPasswordReset Boolean        @default(false)
+    createdAt              DateTime       @default(now())
+    updatedAt              DateTime       @updatedAt
+    refreshTokens          RefreshToken[]
+    resumes                Resume[]
+}
+
+model RefreshToken {
+    id        String   @id @default(uuid())
+    uid       String
+    userId    String
+    user      User     @relation(fields: [userId], references: [id])
+    userAgent String?
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@index([userId])
+}
+
+model Resume {
+    id        String    @id @default(uuid())
+    title     String
+    header    Header?
+    styles    Styles?
+    sections  Section[]
+    userId    String
+    user      User      @relation(fields: [userId], references: [id])
+    createdAt DateTime  @default(now())
+    updatedAt DateTime  @updatedAt
+
+    @@unique([title, userId])
+}
+
+model Styles {
+    id         String @id @default(uuid())
+    resumeId   String @unique
+    resume     Resume @relation(fields: [resumeId], references: [id], onDelete: Cascade)
+    fontFamily String @default("")
+    color      String @default("")
+    padding    String @default("")
+}
+
+model Header {
+    id       String  @id @default(uuid())
+    resumeId String  @unique
+    resume   Resume  @relation(fields: [resumeId], references: [id], onDelete: Cascade)
+    name     String  @default("")
+    title    String  @default("")
+    location String  @default("")
+    phone    String  @default("")
+    email    String  @default("")
+    photo    String?
+}
+
+model Section {
+    id       String  @id @default(uuid())
+    resumeId String
+    resume   Resume  @relation(fields: [resumeId], references: [id], onDelete: Cascade)
+    title    String
+    enabled  Boolean @default(true)
+    column   Int     @default(0)
+    order    Int     @default(0)
+    type     String
+    content  String  @default("")
+
+    @@unique([resumeId, title])
+}

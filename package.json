@@ -4,15 +4,15 @@
   "private": true,
   "repository": "https://github.com/becem-gharbi/resume-builder",
   "scripts": {
-    "build": "npm run migrate && nuxt build",
+    "build": "nuxt build",
     "dev": "nuxt dev",
-    "generate": "npm run migrate && nuxt generate",
+    "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "npm run migrate && nuxt prepare",
     "release": "npm run lint && npm run typecheck && changelogen --release && git push --follow-tags",
     "lint": "eslint .",
     "typecheck": "nuxi typecheck",
-    "migrate": "prisma migrate dev"
+    "migrate:sqlite": "prisma migrate dev",
+    "migrate:cockroachdb": "prisma migrate dev --schema=./prisma/cockroachdb.schema.prisma"
   },
   "devDependencies": {
     "@bg-dev/nuxt-auth": "2.4.3",

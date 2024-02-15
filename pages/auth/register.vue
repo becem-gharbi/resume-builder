@@ -137,7 +137,7 @@ async function handleSubmit () {
     email: model.value.email,
     password: model.value.password,
     name: model.value.firstName + ' ' + model.value.lastName
-  }).then(async () => {
+  }).then(() => {
     success.value = true
   }).catch((error) => {
     apiErrors.value.emailAlreadyExists = error.data.message.includes('email-used-with') || false
