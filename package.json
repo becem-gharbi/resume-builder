@@ -12,7 +12,9 @@
     "lint": "eslint .",
     "typecheck": "nuxi typecheck",
     "migrate:sqlite": "prisma migrate dev",
-    "migrate:cockroachdb": "prisma migrate dev --schema=./prisma/cockroachdb.schema.prisma"
+    "migrate:cockroachdb": "prisma migrate dev --schema=./prisma/cockroachdb.schema.prisma",
+    "generate:sqlite": "prisma generate",
+    "generate:cockroachdb": "prisma generate --schema=./prisma/cockroachdb.schema.prisma"
   },
   "devDependencies": {
     "@bg-dev/nuxt-auth": "2.4.3",

@@ -1,15 +1,21 @@
 # Resume Builder
 
-This web application is intended to build minimal Resumes with HTML. 
+This web application is intended to build minimal Resumes with Markdown.
 
 ## Setup
 
 1. Clone this respository.
 2. Rename `.example.env` to `.env` and set required variables.
-3. Install the dependencies
+3. Install the dependencies.
 
 ```bash
 pnpm install
+```
+
+4. Run database migration.
+
+```bash
+pnpm migrate:sqlite
 ```
 
 ## Development Server
