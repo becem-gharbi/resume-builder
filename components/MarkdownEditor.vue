@@ -7,6 +7,7 @@
       :style="{padding:'4px'}"
       :html-preview="false"
       :no-upload-img="true"
+      :toolbars="['bold','underline','italic','title','sub','sup','quote','unorderedList','orderedList','link','image','table','revoke','next','prettier','pageFullscreen','fullscreen']"
     />
 
     <FormButtons @submit="$emit('update:value', content)" @reset="$emit('cancel')" />

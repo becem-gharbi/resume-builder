@@ -6,7 +6,7 @@
       <NaiveIcon name="ph:pencil-simple-line" class="cursor-pointer" @click="showEditModal = true" />
     </div>
 
-    <NModal :show="showEditModal" :closable="false" preset="card" class="max-w-fit">
+    <NModal :show="showEditModal" :closable="false" preset="card" class="max-w-3xl">
       <MarkdownEditor :value="section.content" @update:value="updateContent" @cancel="showEditModal = false" />
     </NModal>
   </div>

@@ -13,17 +13,4 @@ ol,
 ul {
   list-style: inside !important;
 }
-
-/* Hide extra items from MarkdownEditor's toolbar*/
-div.md-editor-toolbar-item
-[title="formula"],
-[title="mermaid"],
-[title="block-level code"],
-[title="save"],
-[title="html preview"],
-[title="source code"],
-[title="catalog"],
-[title="inline code"] {
-  display: none !important;
-}
 </style>
