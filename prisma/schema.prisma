@@ -55,6 +55,8 @@ model Styles {
   resumeId   String @unique
   resume     Resume @relation(fields: [resumeId], references: [id], onDelete: Cascade)
   fontFamily String @default("")
+  color      String @default("")
+  padding    String @default("")
 }
 
 model Header {

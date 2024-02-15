@@ -1,13 +1,13 @@
 <template>
   <div class="flex">
     <div class="flex flex-col gap-2 flex-grow">
-      <NText class="text-2xl font-semibold">
+      <label class="text-2xl font-semibold">
         {{ resume.header.name }}
-      </NText>
-      <NText class="text-base text-blue-700">
+      </label>
+      <label class="text-base opacity-95">
         {{ resume.header.title }}
-      </NText>
-      <div class="flex mt-2 gap-4">
+      </label>
+      <div class="flex mt-2 gap-4 opacity-85">
         <TextIcon v-if="resume.header.phone" icon="ph:phone-duotone">
           {{ resume.header.phone }}
         </TextIcon>

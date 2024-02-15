@@ -14,10 +14,14 @@ export default defineEventHandler(async (event) => {
       styles: {
         upsert: {
           create: {
-            fontFamily: body.fontFamily
+            fontFamily: body.fontFamily,
+            color: body.color,
+            padding: body.padding
           },
           update: {
-            fontFamily: body.fontFamily
+            fontFamily: body.fontFamily,
+            color: body.color,
+            padding: body.padding
           }
         }
       }

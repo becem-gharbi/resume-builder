@@ -1,8 +1,8 @@
 <template>
-  <div class="p-8" :style="style">
+  <div :style="style">
     <ResumeHeaderPreview :resume="resume!" />
 
-    <div class="mt-16 flex-3 flex gap-12">
+    <div class="mt-12 flex-3 flex gap-12">
       <div class="w-full flex flex-col gap-8">
         <ResumeSectionPreview
           v-for="section of column0"
@@ -25,6 +25,8 @@
 </template>
 
 <script setup lang="ts">
+import type { StyleValue } from 'vue'
+
 definePageMeta({
   layout: 'preview',
   colorMode: 'light'
@@ -49,7 +51,9 @@ useHead(() => ({
   }]
 }))
 
-const style = computed(() => ({
-  fontFamily: resume.value?.styles.fontFamily
+const style = computed<StyleValue>(() => ({
+  fontFamily: resume.value?.styles.fontFamily,
+  padding: resume.value?.styles.padding,
+  color: resume.value?.styles.color
 }))
 </script>

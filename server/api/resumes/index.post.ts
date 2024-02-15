@@ -15,7 +15,9 @@ export default defineEventHandler(async (event) => {
       title,
       styles: {
         create: {
-          fontFamily: 'Rubik'
+          fontFamily: 'Rubik',
+          color: 'black',
+          padding: '16px'
         }
       },
       header: {

@@ -1,13 +1,12 @@
 <template>
   <div>
-    <div class="border-b-2 border-slate-200  mb-4">
-      <NText class="font-normal">
-        {{ section.title.toUpperCase() }}
-      </NText>
+    <div class="mb-4">
+      <label class="font-normal text-base opacity-90">
+        {{ section.title }}
+      </label>
+      <div :style="{height:'2px', borderBottom:'1px solid'}" class="opacity-40" />
     </div>
-    <NText>
-      <MdPreview :model-value="section.content" />
-    </NText>
+    <MdPreview :model-value="section.content" class="opacity-90" />
   </div>
 </template>
 
