@@ -23,13 +23,28 @@
     </template>
 
     <NTabs type="line">
-      <NTabPane name="Styles" tab="Styles">
+      <NTabPane name="Styles">
+        <template #tab>
+          <TextIcon icon="ph:palette">
+            Styles
+          </TextIcon>
+        </template>
         <ResumeStylesEdit v-model:resume="resume" />
       </NTabPane>
-      <NTabPane name="Header" tab="Header">
+      <NTabPane name="Header">
+        <template #tab>
+          <TextIcon icon="ph:identification-card">
+            Header
+          </TextIcon>
+        </template>
         <ResumeHeaderEdit v-model:resume="resume" />
       </NTabPane>
-      <NTabPane name="Sections" tab="Sections">
+      <NTabPane name="Sections">
+        <template #tab>
+          <TextIcon icon="ph:grid-four">
+            Sections
+          </TextIcon>
+        </template>
         <ResumeSectionsEdit v-model:resume="resume" />
       </NTabPane>
     </NTabs>

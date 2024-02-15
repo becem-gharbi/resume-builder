@@ -12,11 +12,17 @@
       <NInput v-model:value="model.name" />
     </NFormItem>
 
+    <NFormItem label="Color Mode">
+      <NSelect v-model:value="preference" :options="colorModeSelectOptions" />
+    </NFormItem>
+
     <FormButtons :loading="pending" :disabled="!edited || pending" @reset="onReset()" />
   </NForm>
 </template>
 
 <script setup lang="ts">
+import type { SelectOption } from 'naive-ui'
+
 const uploadRef = ref()
 const { user } = useAuthSession()
 
@@ -58,4 +64,25 @@ async function updateAccount () {
 
   await useAuth().fetchUser()
 }
+
+const { colorModePreference } = useNaiveColorMode()
+
+const preference = computed({
+  get: () => colorModePreference.get(),
+  set: value => colorModePreference.set(value)
+})
+
+const colorModeSelectOptions = ref<SelectOption[]>([
+  {
+    label: 'Light',
+    value: 'light'
+  },
+  {
+    label: 'Dark',
+    value: 'dark'
+  }, {
+    label: 'System',
+    value: 'system'
+  }
+])
 </script>

@@ -1,19 +1,30 @@
 <template>
   <NCard class="md:w-1/2 md:mx-auto flex flex-col gap-4" title="Account">
     <NTabs type="line">
-      <NTabPane name="Profile" tab="Profile">
+      <NTabPane name="Profile">
+        <template #tab>
+          <TextIcon icon="ph:user">
+            Profile
+          </TextIcon>
+        </template>
         <AccountProfile />
       </NTabPane>
 
-      <NTabPane name="Preferences" tab="Preferences">
-        <AccountPreferences />
-      </NTabPane>
-
-      <NTabPane v-if="user?.provider === 'default'" name="Security" tab="Security">
+      <NTabPane v-if="user?.provider === 'default'" name="Security">
+        <template #tab>
+          <TextIcon icon="ph:lock-key">
+            Security
+          </TextIcon>
+        </template>
         <AccountPassword />
       </NTabPane>
 
       <NTabPane name="Sessions" tab="Sessions">
+        <template #tab>
+          <TextIcon icon="ph:cards">
+            Sessions
+          </TextIcon>
+        </template>
         <AccountSessions />
       </NTabPane>
     </NTabs>
