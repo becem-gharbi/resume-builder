@@ -28,7 +28,7 @@
     </template>
 
     <NDialogProvider>
-      <div class="flex-1 container mx-auto my-8 px-4">
+      <div class="flex-1 container mx-auto my-8">
         <slot />
       </div>
     </NDialogProvider>

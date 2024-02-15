@@ -7,7 +7,7 @@
       </NText>
     </NuxtLink>
 
-    <n-text class="text-base font-medium mt-1 mr-auto sm:mr-0" depth="3">
+    <n-text class="text-base font-medium mt-1 text-center" depth="3">
       {{ title }}
     </n-text>
 

@@ -18,22 +18,22 @@ function onPrint () {
 
 <style scoped>
 .page {
-    margin: 48px auto;
-    width: 210mm;
-    height: 297mm;
-    border: 2px solid #cbd5e1;
+  margin: 48px auto;
+  width: 210mm;
+  height: 297mm;
+  border: 1px solid #cbd5e1;
 }
 
 @media print {
-    .page {
-        margin: auto;
-        width: auto;
-        height: auto;
-        border: none;
-    }
+  .page {
+    margin: auto;
+    width: auto;
+    height: auto;
+    border: none;
+  }
 
-    .print-btn {
-      display: none;
-    }
+  .print-btn {
+    display: none;
+  }
 }
 </style>
