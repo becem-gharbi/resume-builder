@@ -21,6 +21,7 @@
 </template>
 
 <script setup lang="ts">
+import { withQuery } from 'ufo'
 import type { SelectOption } from 'naive-ui'
 
 const uploadRef = ref()
@@ -49,7 +50,9 @@ async function updateAccount () {
       }
     })
 
-    model.value.picture = url
+    model.value.picture = withQuery(url, {
+      t: new Date().getTime()
+    })
   }
 
   await useNuxtApp().$auth.fetch('/api/user', {
