@@ -1,58 +1,54 @@
 <template>
   <NForm ref="formRef" :model="model" @submit.prevent="onSubmit(handleSubmit)">
     <NFormItem label="Name">
-      <NInput v-model:value="model.header.name" />
+      <NInput v-model:value="model.name" />
     </NFormItem>
 
     <NFormItem label="Job Title">
-      <NInput v-model:value="model.header.title" />
+      <NInput v-model:value="model.title" />
     </NFormItem>
 
     <NFormItem label="Email">
-      <NInput v-model:value="model.header.email" />
+      <NInput v-model:value="model.email" />
     </NFormItem>
 
     <NFormItem label="Phone">
-      <NInput v-model:value="model.header.phone" />
+      <NInput v-model:value="model.phone" />
     </NFormItem>
 
     <NFormItem label="Location">
-      <NInput v-model:value="model.header.location" />
+      <NInput v-model:value="model.location" />
     </NFormItem>
 
-    <NFormItem label="Photo">
-      <n-checkbox v-model:checked="showPhoto">
-        Show
-      </n-checkbox>
-    </NFormItem>
+    <NCheckbox v-model:checked="showPhoto" label="Show Photo" class="mb-8" />
 
     <FormButtons :loading="pending" :disabled="!edited || pending" @reset="reset()" />
   </NForm>
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{ resume: Resume }>()
-const emits = defineEmits(['update:resume'])
+const props = defineProps<{ header: Header, resumeId: Resume['id'] }>()
+const emits = defineEmits(['update:header'])
 const { updateHeader } = useResume()
 
-const model = ref(props.resume)
+const model = ref(props.header)
 
 const { formRef, pending, edited, reset, onSubmit } = useNaiveForm(model)
 
 const showPhoto = computed<boolean>({
-  get: () => !!model.value.header.photo,
+  get: () => !!model.value.photo,
   set: (value) => {
     if (value) {
-      model.value.header.photo = useAuthSession().user.value?.picture ?? null
+      model.value.photo = useAuthSession().user.value?.picture ?? null
     } else {
-      model.value.header.photo = null
+      model.value.photo = null
     }
   }
 })
 
 async function handleSubmit () {
-  await updateHeader(model.value.id, model.value.header)
+  await updateHeader(props.resumeId, model.value)
 
-  emits('update:resume', model.value)
+  emits('update:header', model.value)
 }
 </script>

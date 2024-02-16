@@ -8,7 +8,7 @@
       @change="onReorder"
     >
       <template #item="{ element }">
-        <ResumeSectionEdit :section="element" :resume-id="resume.id" class="my-2" />
+        <ResumeSectionEdit :section="element" :resume-id="resumeId" class="my-2" />
       </template>
     </Draggable>
 
@@ -20,7 +20,7 @@
       @change="onReorder"
     >
       <template #item="{ element }">
-        <ResumeSectionEdit :section="element" :resume-id="resume.id" class="my-2" />
+        <ResumeSectionEdit :section="element" :resume-id="resumeId" class="my-2" />
       </template>
     </Draggable>
   </div>
@@ -29,13 +29,13 @@
 <script setup lang="ts">
 import Draggable from 'vuedraggable'
 
-const props = defineProps<{ resume: Resume }>()
-const emits = defineEmits(['update:resume'])
+const props = defineProps<{ sections: Section[], resumeId: Resume['id'] }>()
+const emits = defineEmits(['update:sections'])
 
 const { updateSections } = useResume()
 
-const column0 = computed(() => props.resume.sections.filter(s => s.column === 0))
-const column1 = computed(() => props.resume.sections.filter(s => s.column === 1))
+const column0 = computed(() => props.sections.filter(s => s.column === 0))
+const column1 = computed(() => props.sections.filter(s => s.column === 1))
 
 async function onReorder () {
   const sections = [
@@ -43,9 +43,9 @@ async function onReorder () {
     ...column1.value.map((el, index) => ({ ...el, column: 1, order: index }))
   ]
 
-  emits('update:resume', { ...props.resume, sections })
+  emits('update:sections', sections)
 
   const data = sections.map(({ id, column, order }) => ({ id, column, order }))
-  await updateSections(props.resume.id, data)
+  await updateSections(props.resumeId, data)
 }
 </script>

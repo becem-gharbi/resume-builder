@@ -15,7 +15,7 @@ export default defineAppConfig({
           padding: '16px'
         },
         Tabs: {
-          panePaddingMedium: '20px 0 0 0'
+          panePaddingMedium: '24px 0 0 0'
         }
       },
 

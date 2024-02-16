@@ -1,5 +1,5 @@
 <template>
-  <NCard class="md:w-2/3 md:mx-auto">
+  <PageWrapper>
     <template #header>
       <TextEditable :value="resume.title" @update:value="updateTitle" />
     </template>
@@ -7,14 +7,14 @@
     <template #header-extra>
       <div class="flex gap-2">
         <NuxtLink :to="`/resumes/${resume.id}/preview`" target="_blank">
-          <NButton size="small">
+          <NButton size="small" secondary>
             <template #icon>
               <NaiveIcon name="ph:eye" :size="16" />
             </template>
           </NButton>
         </NuxtLink>
 
-        <NButton size="small" @click="onDelete">
+        <NButton size="small" secondary @click="onDelete">
           <template #icon>
             <NaiveIcon name="ph:trash" :size="16" />
           </template>
@@ -29,7 +29,7 @@
             Styles
           </TextIcon>
         </template>
-        <ResumeStylesEdit v-model:resume="resume" />
+        <ResumeStylesEdit v-model:styles="resume.styles" :resume-id="resume.id" />
       </NTabPane>
       <NTabPane name="Header">
         <template #tab>
@@ -37,7 +37,7 @@
             Header
           </TextIcon>
         </template>
-        <ResumeHeaderEdit v-model:resume="resume" />
+        <ResumeHeaderEdit v-model:header="resume.header" :resume-id="resume.id" />
       </NTabPane>
       <NTabPane name="Sections">
         <template #tab>
@@ -45,10 +45,10 @@
             Sections
           </TextIcon>
         </template>
-        <ResumeSectionsEdit v-model:resume="resume" />
+        <ResumeSectionsEdit v-model:sections="resume.sections" :resume-id="resume.id" />
       </NTabPane>
     </NTabs>
-  </NCard>
+  </PageWrapper>
 </template>
 
 <script setup>

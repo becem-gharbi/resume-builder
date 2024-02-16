@@ -28,16 +28,16 @@ async function toggleEnabled () {
   await updateSections(props.resumeId, data)
 }
 
-async function updateTitle (newTitle: string) {
-  section.value.title = newTitle
+async function updateTitle (title: string) {
+  section.value.title = title
 
   const data = [{ id: section.value.id, title: section.value.title }]
   await updateSections(props.resumeId, data)
 }
 
-async function updateContent (newContent: string) {
+async function updateContent (content: string) {
   showEditModal.value = false
-  section.value.content = newContent
+  section.value.content = content
 
   const data = [{ id: section.value.id, content: section.value.content }]
   await updateSections(props.resumeId, data)

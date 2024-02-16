@@ -33,9 +33,6 @@ const title = computed(() => {
 
     case 'auth-reset-password':
       return 'Reset your password'
-
-    case 'auth-verify-email':
-      return 'Email verification'
   }
 })
 </script>

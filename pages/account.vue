@@ -1,5 +1,9 @@
 <template>
-  <NCard class="md:w-1/2 md:mx-auto" title="Account">
+  <PageWrapper>
+    <template #header>
+      Account
+    </template>
+
     <NTabs type="card">
       <NTabPane name="Profile">
         <template #tab>
@@ -28,7 +32,7 @@
         <AccountSessions />
       </NTabPane>
     </NTabs>
-  </NCard>
+  </PageWrapper>
 </template>
 
 <script setup>

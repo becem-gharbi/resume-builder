@@ -1,13 +1,13 @@
 export function useResume () {
   const { $auth } = useNuxtApp()
 
-  function broadcastMessage (id: string, message: string) {
+  function broadcastMessage (id: Resume['id'], message: string) {
     const broadcastChannel = new BroadcastChannel(`resume:${id}`)
     broadcastChannel.postMessage(message)
     broadcastChannel.close()
   }
 
-  function onUpdate (id: string, cb: () => any) {
+  function onUpdate (id: Resume['id'], cb: () => any) {
     const broadcastChannel = new BroadcastChannel(`resume:${id}`)
     broadcastChannel.addEventListener('message', cb)
     return broadcastChannel
@@ -19,7 +19,7 @@ export function useResume () {
     })
   }
 
-  async function remove (id: string) {
+  async function remove (id: Resume['id']) {
     return await $auth.fetch(`/api/resumes/${id}`, {
       method: 'delete'
     })
@@ -29,11 +29,11 @@ export function useResume () {
     return await $auth.fetch('/api/resumes')
   }
 
-  async function get (id: string) {
+  async function get (id: Resume['id']) {
     return await $auth.fetch<Resume>(`/api/resumes/${id}`)
   }
 
-  async function update (id: string, data: Partial<Resume>) {
+  async function update (id: Resume['id'], data: Partial<Resume>) {
     await $auth.fetch(`/api/resumes/${id}`, {
       method: 'patch',
       body: data
@@ -41,7 +41,7 @@ export function useResume () {
     broadcastMessage(id, 'refresh')
   }
 
-  async function updateHeader (id:string, data:Partial<Header>) {
+  async function updateHeader (id:Resume['id'], data:Partial<Header>) {
     await $auth.fetch(`/api/resumes/${id}/header`, {
       method: 'patch',
       body: data
@@ -49,7 +49,7 @@ export function useResume () {
     broadcastMessage(id, 'refresh')
   }
 
-  async function updateSections (id:string, data:Partial<Section>[]) {
+  async function updateSections (id:Resume['id'], data:Partial<Section>[]) {
     await $auth.fetch(`/api/resumes/${id}/sections`, {
       method: 'patch',
       body: data
@@ -57,7 +57,7 @@ export function useResume () {
     broadcastMessage(id, 'refresh')
   }
 
-  async function updateStyles (id:string, data:Partial<Styles>) {
+  async function updateStyles (id:Resume['id'], data:Partial<Styles>) {
     await $auth.fetch(`/api/resumes/${id}/styles`, {
       method: 'patch',
       body: data

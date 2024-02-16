@@ -1,6 +1,6 @@
 <template>
   <div :style="style">
-    <ResumeHeaderPreview :resume="resume!" />
+    <ResumeHeaderPreview :header="resume!.header" />
 
     <div class="mt-12 flex-3 flex gap-12">
       <div class="w-full flex flex-col gap-8">

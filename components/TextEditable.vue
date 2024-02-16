@@ -1,9 +1,9 @@
 <template>
   <div class="w-fit" @click="showInput = true">
     <NInput v-if="showInput" v-model:value="text" size="small" @keyup="onKeyup" />
-    <NText v-else>
+    <label v-else>
       {{ value || '--' }}
-    </NText>
+    </label>
   </div>
 </template>
 

@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <n-text class="text-lg font-semibold">
+  <PageWrapper>
+    <template #header>
       My resumes
-    </n-text>
+    </template>
 
     <div class="mt-8 flex flex-wrap gap-6">
       <ResumeCreate />
@@ -14,7 +14,7 @@
         :updated-at="resume.updatedAt"
       />
     </div>
-  </div>
+  </PageWrapper>
 </template>
 
 <script setup lang="ts">
