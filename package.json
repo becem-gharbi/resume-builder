@@ -1,6 +1,8 @@
 {
   "name": "resume-builder",
-  "version": "0.1.4",
+  "version": "0.1.5",
+  "author": "Becem Gharbi",
+  "description": "Build minimal Resume with Markdown",
   "private": true,
   "repository": "https://github.com/becem-gharbi/resume-builder",
   "scripts": {

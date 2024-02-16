@@ -1,6 +1,27 @@
 # Changelog
 
 
+## v0.1.5
+
+[compare changes](https://github.com/becem-gharbi/resume-builder/compare/v0.1.4...v0.1.5)
+
+### 🩹 Fixes
+
+- Refetch photo after upload ([2e59c3a](https://github.com/becem-gharbi/resume-builder/commit/2e59c3a))
+
+### 💅 Refactors
+
+- Reduce page layout padding ([6b41545](https://github.com/becem-gharbi/resume-builder/commit/6b41545))
+- Minor UI improvements ([be2342e](https://github.com/becem-gharbi/resume-builder/commit/be2342e))
+
+### 🏡 Chore
+
+- No significant change ([49a61a0](https://github.com/becem-gharbi/resume-builder/commit/49a61a0))
+
+### ❤️ Contributors
+
+- Becem-gharbi <becem.gharbi@live.com>
+
 ## v0.1.4
 
 [compare changes](https://github.com/becem-gharbi/resume-builder/compare/v0.1.3...v0.1.4)
