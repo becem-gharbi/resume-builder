@@ -37,7 +37,7 @@ export default defineNuxtConfig({
     'nuxt-s3'
   ],
 
-  auth: auth as any,
+  auth,
   naiveui,
   tailwindcss,
   s3
