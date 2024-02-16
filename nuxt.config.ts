@@ -12,6 +12,7 @@ export default defineNuxtConfig({
         lang: 'en'
       },
       link: [
+        { rel: 'icon', href: '/icon.svg' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         {
           rel: 'preconnect',

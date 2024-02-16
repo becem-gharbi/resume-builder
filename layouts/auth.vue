@@ -1,7 +1,7 @@
 <template>
   <div class="page justify-center items-center p-7">
     <NuxtLink to="/" class="flex items-center gap-2">
-      <NaiveIcon name="ph:read-cv-logo" :size="25" />
+      <img src="/icon.svg" width="30" height="40" alt="icon">
       <NText strong class="text-lg">
         Resume Builder
       </NText>

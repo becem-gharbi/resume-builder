@@ -2,7 +2,7 @@
   <NaiveLayoutNavbar :routes="routes" :drawer-routes="routes">
     <template #start>
       <NuxtLink to="/" class="flex items-center gap-2">
-        <NaiveIcon name="ph:read-cv-logo" :size="25" />
+        <img src="/icon.svg" width="30" height="40" alt="icon">
         <NText strong>
           Resume Builder
         </NText>
@@ -41,7 +41,7 @@
 
 <script setup lang="ts">
 import type { MenuLinkRoute } from '@bg-dev/nuxt-naiveui'
-import { NaiveIcon, AccountInfo } from '#components'
+import { AccountInfo } from '#components'
 
 const { logout } = useAuth()
 
