@@ -2,7 +2,7 @@
   <NaiveLayoutNavbar :routes="routes" :drawer-routes="routes">
     <template #start>
       <NuxtLink to="/" class="flex items-center gap-2">
-        <img src="/icon.svg" width="30" height="40" alt="icon">
+        <img src="/icon.svg" width="22" height="30" alt="icon">
         <NText strong>
           Resume Builder
         </NText>
