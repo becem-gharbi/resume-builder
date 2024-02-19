@@ -21,6 +21,7 @@ function onPrint () {
   margin: 48px auto;
   width: 210mm;
   border: 1px solid #cbd5e1;
+  line-height: 1.3rem;
 }
 
 @media print {
