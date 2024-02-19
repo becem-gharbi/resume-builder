@@ -20,7 +20,6 @@ function onPrint () {
 .page {
   margin: 48px auto;
   width: 210mm;
-  height: 297mm;
   border: 1px solid #cbd5e1;
 }
 
